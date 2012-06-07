@@ -18,6 +18,14 @@
        <td> <div class="display-field"><%: Model.EventParentName %></div></td>
        </tr>
        <tr>
+       <td class="size-150" style="width: 136px"><div class="display-label">Nội dung (Tóm tắt)</div></td>
+       <td> <div class="display-field"><%: Model.EventParentTitle %></div></td>
+       </tr>
+        <tr>
+       <td class="size-150" style="width: 136px"><div class="display-label">Hình ảnh</div></td>
+       <td> <div class="display-field"><img src="<%= Model.EventParentImage %>" alt="hình" style="width: 180px; height:140px"/></div></td>
+       </tr>
+       <tr>
        <td class="size-150" style="width: 136px"><div class="display-label">Trạnh thái</div></td>
        <td><div class="display-field"><%: Model.StatusText %></div></td>
        </tr>
