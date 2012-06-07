@@ -11,8 +11,8 @@
     <a href="<%=Url.Action("Create","EventParentsManagement") %>"><img src="../../Images/admin_add.png alt="Tạo mới" /></a>
             <a href="<%=Url.Action("Index","EventParentsManagement") %>"><img src="../../Images/admin_back.png" alt="Trở về" /></a>
     </div>
-    <%using (Html.BeginForm())
-      { %>
+    <%using (Html.BeginForm("Edit", "EventParentsManagement", FormMethod.Post, new { enctype = "multipart/form-data" }))
+      {%>
     <div>
     
         <table class="table_detail_admin">
@@ -20,10 +20,29 @@
                 <td class="size-170" style="width: 162px">
                     Tên dịch vụ</td>
                 <td>
-                <%=Html.TextBoxFor(Model => Model.EventParentName, new {Style="width:250px" })%>
-                <%=Html.ValidationMessageFor(Model=> Model.EventParentName) %>
+                <%=Html.TextBoxFor(model => model.EventParentName, new {Style="width:250px" })%>
+                <%=Html.ValidationMessageFor(model=> model.EventParentName) %>
                 </td>
             </tr>
+            
+             <tr>
+                <td class="size-170" style="width: 162px">
+                    Nội dung (Tóm tắt dưới 500 ký tự)</td>
+                <td>
+                <%=Html.TextAreaFor(model =>model.EventParentTitle, new {Style="width:250px" })%>
+                <%=Html.ValidationMessageFor(model=> model.EventParentTitle) %>
+                </td>
+            </tr>
+            
+             <tr>
+                <td class="size-170" style="width: 162px">
+                    Tên dịch vụ</td>
+                <td>
+                <img src="<%=this.Model.EventParentImage %>" alt="hình đại diện" style="width: 180px; height:140px" />
+                 <input name="uploadFile" type="file" />
+                </td>
+            </tr>
+           
             <tr>
                 <td class="size-170" style="width: 162px">
                     Trạng thái</td>
