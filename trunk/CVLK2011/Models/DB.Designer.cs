@@ -24,13 +24,11 @@ using System.Runtime.Serialization;
 [assembly: EdmRelationshipAttribute("DB", "FK_Comment_Blog", "Blog", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CVLK2011.Models.Blog), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_Comment_Events", "Event", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CVLK2011.Models.Event), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Comment), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_Comment_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CVLK2011.Models.User), "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Comment), true)]
-[assembly: EdmRelationshipAttribute("DB", "FK_Events_EventParents", "EventParent", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CVLK2011.Models.EventParent), "Event", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Event), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_Friends_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CVLK2011.Models.User), "Friend", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Friend), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_Messages_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CVLK2011.Models.User), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Message), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_Messages_Users1", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CVLK2011.Models.User), "Message", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Message), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_VIPVideo_Users", "User", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CVLK2011.Models.User), "VIPVideo", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.VIPVideo), true)]
 [assembly: EdmRelationshipAttribute("DB", "FK_Comment_Comment", "Comment", System.Data.Metadata.Edm.RelationshipMultiplicity.ZeroOrOne, typeof(CVLK2011.Models.Comment), "Comment1", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.Comment), true)]
-[assembly: EdmRelationshipAttribute("DB", "FK_Users_EventParents", "EventParent", System.Data.Metadata.Edm.RelationshipMultiplicity.One, typeof(CVLK2011.Models.EventParent), "User", System.Data.Metadata.Edm.RelationshipMultiplicity.Many, typeof(CVLK2011.Models.User), true)]
 
 #endregion
 
@@ -177,22 +175,6 @@ namespace CVLK2011.Models
             }
         }
         private ObjectSet<Consultant> _Consultants;
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        public ObjectSet<EventParent> EventParents
-        {
-            get
-            {
-                if ((_EventParents == null))
-                {
-                    _EventParents = base.CreateObjectSet<EventParent>("EventParents");
-                }
-                return _EventParents;
-            }
-        }
-        private ObjectSet<EventParent> _EventParents;
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -385,6 +367,22 @@ namespace CVLK2011.Models
             }
         }
         private ObjectSet<Photo> _Photos;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<EventParent> EventParents
+        {
+            get
+            {
+                if ((_EventParents == null))
+                {
+                    _EventParents = base.CreateObjectSet<EventParent>("EventParents");
+                }
+                return _EventParents;
+            }
+        }
+        private ObjectSet<EventParent> _EventParents;
 
         #endregion
         #region AddTo Methods
@@ -435,14 +433,6 @@ namespace CVLK2011.Models
         public void AddToConsultants(Consultant consultant)
         {
             base.AddObject("Consultants", consultant);
-        }
-    
-        /// <summary>
-        /// Deprecated Method for adding a new object to the EventParents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
-        /// </summary>
-        public void AddToEventParents(EventParent eventParent)
-        {
-            base.AddObject("EventParents", eventParent);
         }
     
         /// <summary>
@@ -539,6 +529,14 @@ namespace CVLK2011.Models
         public void AddToPhotos(Photo photo)
         {
             base.AddObject("Photos", photo);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the EventParents EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToEventParents(EventParent eventParent)
+        {
+            base.AddObject("EventParents", eventParent);
         }
 
         #endregion
@@ -6952,44 +6950,6 @@ namespace CVLK2011.Models
                 }
             }
         }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB", "FK_Events_EventParents", "EventParent")]
-        public EventParent EventParent
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EventParent>("DB.FK_Events_EventParents", "EventParent").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EventParent>("DB.FK_Events_EventParents", "EventParent").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<EventParent> EventParentReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EventParent>("DB.FK_Events_EventParents", "EventParent");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EventParent>("DB.FK_Events_EventParents", "EventParent", value);
-                }
-            }
-        }
 
         #endregion
     }
@@ -7116,56 +7076,57 @@ namespace CVLK2011.Models
         private global::System.String _EventParentDesc;
         partial void OnEventParentDescChanging(global::System.String value);
         partial void OnEventParentDescChanged();
-
-        #endregion
-    
-        #region Navigation Properties
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB", "FK_Events_EventParents", "Event")]
-        public EntityCollection<Event> Events
+        public global::System.String EventParentTitle
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<Event>("DB.FK_Events_EventParents", "Event");
+                return _EventParentTitle;
             }
             set
             {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<Event>("DB.FK_Events_EventParents", "Event", value);
-                }
+                OnEventParentTitleChanging(value);
+                ReportPropertyChanging("EventParentTitle");
+                _EventParentTitle = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EventParentTitle");
+                OnEventParentTitleChanged();
             }
         }
+        private global::System.String _EventParentTitle;
+        partial void OnEventParentTitleChanging(global::System.String value);
+        partial void OnEventParentTitleChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
         /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
         [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB", "FK_Users_EventParents", "User")]
-        public EntityCollection<User> Users
+        public global::System.String EventParentImage
         {
             get
             {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedCollection<User>("DB.FK_Users_EventParents", "User");
+                return _EventParentImage;
             }
             set
             {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<User>("DB.FK_Users_EventParents", "User", value);
-                }
+                OnEventParentImageChanging(value);
+                ReportPropertyChanging("EventParentImage");
+                _EventParentImage = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EventParentImage");
+                OnEventParentImageChanged();
             }
         }
+        private global::System.String _EventParentImage;
+        partial void OnEventParentImageChanging(global::System.String value);
+        partial void OnEventParentImageChanged();
 
         #endregion
+    
     }
     
     /// <summary>
@@ -9982,44 +9943,6 @@ namespace CVLK2011.Models
                 if ((value != null))
                 {
                     ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedCollection<VIPVideo>("DB.FK_VIPVideo_Users", "VIPVideo", value);
-                }
-            }
-        }
-    
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [XmlIgnoreAttribute()]
-        [SoapIgnoreAttribute()]
-        [DataMemberAttribute()]
-        [EdmRelationshipNavigationPropertyAttribute("DB", "FK_Users_EventParents", "EventParent")]
-        public EventParent EventParent
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EventParent>("DB.FK_Users_EventParents", "EventParent").Value;
-            }
-            set
-            {
-                ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EventParent>("DB.FK_Users_EventParents", "EventParent").Value = value;
-            }
-        }
-        /// <summary>
-        /// No Metadata Documentation available.
-        /// </summary>
-        [BrowsableAttribute(false)]
-        [DataMemberAttribute()]
-        public EntityReference<EventParent> EventParentReference
-        {
-            get
-            {
-                return ((IEntityWithRelationships)this).RelationshipManager.GetRelatedReference<EventParent>("DB.FK_Users_EventParents", "EventParent");
-            }
-            set
-            {
-                if ((value != null))
-                {
-                    ((IEntityWithRelationships)this).RelationshipManager.InitializeRelatedReference<EventParent>("DB.FK_Users_EventParents", "EventParent", value);
                 }
             }
         }
@@ -13238,6 +13161,54 @@ namespace CVLK2011.Models
         private global::System.String _EventParentDesc;
         partial void OnEventParentDescChanging(global::System.String value);
         partial void OnEventParentDescChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EventParentTitle
+        {
+            get
+            {
+                return _EventParentTitle;
+            }
+            set
+            {
+                OnEventParentTitleChanging(value);
+                ReportPropertyChanging("EventParentTitle");
+                _EventParentTitle = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EventParentTitle");
+                OnEventParentTitleChanged();
+            }
+        }
+        private global::System.String _EventParentTitle;
+        partial void OnEventParentTitleChanging(global::System.String value);
+        partial void OnEventParentTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EventParentImage
+        {
+            get
+            {
+                return _EventParentImage;
+            }
+            set
+            {
+                OnEventParentImageChanging(value);
+                ReportPropertyChanging("EventParentImage");
+                _EventParentImage = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EventParentImage");
+                OnEventParentImageChanged();
+            }
+        }
+        private global::System.String _EventParentImage;
+        partial void OnEventParentImageChanging(global::System.String value);
+        partial void OnEventParentImageChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
@@ -17637,6 +17608,54 @@ namespace CVLK2011.Models
         private global::System.String _EventParentDesc;
         partial void OnEventParentDescChanging(global::System.String value);
         partial void OnEventParentDescChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EventParentTitle
+        {
+            get
+            {
+                return _EventParentTitle;
+            }
+            set
+            {
+                OnEventParentTitleChanging(value);
+                ReportPropertyChanging("EventParentTitle");
+                _EventParentTitle = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EventParentTitle");
+                OnEventParentTitleChanged();
+            }
+        }
+        private global::System.String _EventParentTitle;
+        partial void OnEventParentTitleChanging(global::System.String value);
+        partial void OnEventParentTitleChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.String EventParentImage
+        {
+            get
+            {
+                return _EventParentImage;
+            }
+            set
+            {
+                OnEventParentImageChanging(value);
+                ReportPropertyChanging("EventParentImage");
+                _EventParentImage = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("EventParentImage");
+                OnEventParentImageChanged();
+            }
+        }
+        private global::System.String _EventParentImage;
+        partial void OnEventParentImageChanging(global::System.String value);
+        partial void OnEventParentImageChanged();
     
         /// <summary>
         /// No Metadata Documentation available.
