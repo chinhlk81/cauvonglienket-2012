@@ -1,0 +1,1469 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs" Space="C-S">
+  <Alias Key="Model" Value="DB" />
+  <Alias Key="Target" Value="DB.Store" />
+  <EntityContainerMapping CdmEntityContainer="DBContainer" StorageEntityContainer="DBStoreContainer">
+    <EntitySetMapping Name="Ads">
+      <EntityTypeMapping TypeName="DB.Ad">
+        <MappingFragment StoreEntitySet="Ad">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="AdID" ColumnName="AdID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="DB.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="PCIP" ColumnName="PCIP" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="DB.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="AlbumDate" ColumnName="AlbumDate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AlbumType" ColumnName="AlbumType" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="DB.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="DB.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="UserWall" ColumnName="UserWall" />
+          <ScalarProperty Name="CommentType" ColumnName="CommentType" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigValues">
+      <EntityTypeMapping TypeName="DB.ConfigValue">
+        <MappingFragment StoreEntitySet="ConfigValues">
+          <ScalarProperty Name="ConfigValueSortOrder" ColumnName="ConfigValueSortOrder" />
+          <ScalarProperty Name="ConfigKeyGroup" ColumnName="ConfigKeyGroup" />
+          <ScalarProperty Name="ConfigKeyDesc" ColumnName="ConfigKeyDesc" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+          <ScalarProperty Name="ConfigKeyValue" ColumnName="ConfigKeyValue" />
+          <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
+          <ScalarProperty Name="ConfigValueID" ColumnName="ConfigValueID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consultants">
+      <EntityTypeMapping TypeName="DB.Consultant">
+        <MappingFragment StoreEntitySet="Consultants">
+          <ScalarProperty Name="ConsultantDesc" ColumnName="ConsultantDesc" />
+          <ScalarProperty Name="ConsultantPicture" ColumnName="ConsultantPicture" />
+          <ScalarProperty Name="ConsultantSkypeID" ColumnName="ConsultantSkypeID" />
+          <ScalarProperty Name="ConsultantYahooID" ColumnName="ConsultantYahooID" />
+          <ScalarProperty Name="ConsultantPhone" ColumnName="ConsultantPhone" />
+          <ScalarProperty Name="ConsultantEmail" ColumnName="ConsultantEmail" />
+          <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventParents">
+      <EntityTypeMapping TypeName="DB.EventParent">
+        <MappingFragment StoreEntitySet="EventParents">
+          <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="DB.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+          <ScalarProperty Name="EventImages" ColumnName="EventImages" />
+          <ScalarProperty Name="EventAgeJoint" ColumnName="EventAgeJoint" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="EventContent" ColumnName="EventContent" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="FK_AlbumID" ColumnName="FK_AlbumID" />
+          <ScalarProperty Name="FK_EventParentID" ColumnName="FK_EventParentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="DB.Friend">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="DB.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="MessageUnRead" ColumnName="MessageUnRead" />
+          <ScalarProperty Name="MessageIsReply" ColumnName="MessageIsReply" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="DB.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DB.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIPVideos">
+      <EntityTypeMapping TypeName="DB.VIPVideo">
+        <MappingFragment StoreEntitySet="VIPVideo">
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="VideoPartnerID" ColumnName="VideoPartnerID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="VipVideoID" ColumnName="VipVideoID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllConsultants" FunctionName="DB.Store.GetAllConsultants">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllConsultants_Result">
+          <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+          <ScalarProperty Name="ConsultantEmail" ColumnName="ConsultantEmail" />
+          <ScalarProperty Name="ConsultantPhone" ColumnName="ConsultantPhone" />
+          <ScalarProperty Name="ConsultantYahooID" ColumnName="ConsultantYahooID" />
+          <ScalarProperty Name="ConsultantSkypeID" ColumnName="ConsultantSkypeID" />
+          <ScalarProperty Name="ConsultantPicture" ColumnName="ConsultantPicture" />
+          <ScalarProperty Name="ConsultantDesc" ColumnName="ConsultantDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetConsultantByID" FunctionName="DB.Store.GetConsultantByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetConsultantByID_Result">
+          <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+          <ScalarProperty Name="ConsultantEmail" ColumnName="ConsultantEmail" />
+          <ScalarProperty Name="ConsultantPhone" ColumnName="ConsultantPhone" />
+          <ScalarProperty Name="ConsultantYahooID" ColumnName="ConsultantYahooID" />
+          <ScalarProperty Name="ConsultantSkypeID" ColumnName="ConsultantSkypeID" />
+          <ScalarProperty Name="ConsultantPicture" ColumnName="ConsultantPicture" />
+          <ScalarProperty Name="ConsultantDesc" ColumnName="ConsultantDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteConsultant" FunctionName="DB.Store.DeleteConsultant" />
+    <FunctionImportMapping FunctionImportName="GetBlogByID" FunctionName="DB.Store.GetBlogByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetBlogByID_Result">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="BlogApprove" FunctionName="DB.Store.BlogApprove" />
+    <FunctionImportMapping FunctionImportName="BlogUnApprove" FunctionName="DB.Store.BlogUnApprove" />
+    <FunctionImportMapping FunctionImportName="DeleteBlog" FunctionName="DB.Store.DeleteBlog" />
+    <FunctionImportMapping FunctionImportName="GetAllComments" FunctionName="DB.Store.GetAllComments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllComments_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="UserWall" ColumnName="UserWall" />
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+          <ScalarProperty Name="CommentType" ColumnName="CommentType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetCommentByID" FunctionName="DB.Store.GetCommentByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetCommentByID_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteComment" FunctionName="DB.Store.DeleteComment" />
+    <FunctionImportMapping FunctionImportName="UpdateCommentStatus" FunctionName="DB.Store.ApproveComment" />
+    <FunctionImportMapping FunctionImportName="UpdateMessageStatus" FunctionName="DB.Store.UpdateMessageStatus" />
+    <FunctionImportMapping FunctionImportName="DeleteMessage" FunctionName="DB.Store.DeleteMessage" />
+    <FunctionImportMapping FunctionImportName="DeletePhoto" FunctionName="DB.Store.DeletePhoto" />
+    <FunctionImportMapping FunctionImportName="GetStatusByConsultantsGroup" FunctionName="DB.Store.GetStatusByConsultantsGroup" />
+    <FunctionImportMapping FunctionImportName="GetAllBlogs" FunctionName="DB.Store.GetAllBlogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllBlogs_Result">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllMessages" FunctionName="DB.Store.GetAllMessages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessages_Result">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserNameSend" ColumnName="UserNameSend" />
+          <ScalarProperty Name="FullNameSend" ColumnName="FullNameSend" />
+          <ScalarProperty Name="UserNameReceipt" ColumnName="UserNameReceipt" />
+          <ScalarProperty Name="UserFullNameReceipt" ColumnName="UserFullNameReceipt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMessageByID" FunctionName="DB.Store.GetMessageByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetMessageByID_Result">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserNameSend" ColumnName="UserNameSend" />
+          <ScalarProperty Name="FullNameSend" ColumnName="FullNameSend" />
+          <ScalarProperty Name="UserNameReceipt" ColumnName="UserNameReceipt" />
+          <ScalarProperty Name="UserFullNameReceipt" ColumnName="UserFullNameReceipt" />
+          <ScalarProperty Name="MessageUnRead" ColumnName="MessageUnRead" />
+          <ScalarProperty Name="MessageIsReply" ColumnName="MessageIsReply" />
+          <ScalarProperty Name="UserPictureSend" ColumnName="UserPictureSend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllUsers" FunctionName="DB.Store.GetAllUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllEventParents" FunctionName="DB.Store.GetAllEventParents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllEventParents_Result">
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEventParentByID" FunctionName="DB.Store.GetEventParentByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetEventParentByID_Result">
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetConfigValuesByEventParentsGroup" FunctionName="DB.Store.GetConfigValueByEventParentsGroup" />
+    <FunctionImportMapping FunctionImportName="GetAllMenuConfig" FunctionName="DB.Store.GetAllMenuConfigs" />
+    <FunctionImportMapping FunctionImportName="GetMenuConfigByID" FunctionName="DB.Store.GetMenuConfigsByID" />
+    <FunctionImportMapping FunctionImportName="GetAllPhotos" FunctionName="DB.Store.GetAllPhotos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllPhotos_Result">
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetPhotoByID" FunctionName="DB.Store.GetPhotoByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetPhotoByID_Result">
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllConsultings" FunctionName="DB.Store.GetALLConsultings">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllConsultings_Result">
+          <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultingQuestions" ColumnName="ConsultingQuestions" />
+          <ScalarProperty Name="ConsultingAnwsers" ColumnName="ConsultingAnwsers" />
+          <ScalarProperty Name="ConsultingDesction" ColumnName="ConsultingDesction" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteConsulting" FunctionName="DB.Store.DeleteConsulting" />
+    <FunctionImportMapping FunctionImportName="GetAllEvents" FunctionName="DB.Store.GetAllEvents" />
+    <FunctionImportMapping FunctionImportName="GetConsultingByID" FunctionName="DB.Store.GetConsultingsById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetConsultingByID_Result">
+          <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultingQuestions" ColumnName="ConsultingQuestions" />
+          <ScalarProperty Name="ConsultingAnwsers" ColumnName="ConsultingAnwsers" />
+          <ScalarProperty Name="ConsultingDesction" ColumnName="ConsultingDesction" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetNIdEventParents" FunctionName="DB.Store.GetNIdEventParents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetNIdEventParents_Result">
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetEventByID" FunctionName="DB.Store.GetEventById" />
+    <FunctionImportMapping FunctionImportName="GetConsultingStatus" FunctionName="DB.Store.GetConsultingStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetConsultingStatus_Result">
+          <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteEvent" FunctionName="DB.Store.DeleteEventById" />
+    <FunctionImportMapping FunctionImportName="GetDefaultAlbumID" FunctionName="DB.Store.GetDefaultAlbum" />
+    <FunctionImportMapping FunctionImportName="GetAllMessageInboxByUserID" FunctionName="DB.Store.GetAllMessageByUserReceiptID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessageInboxByUserID_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllMessageOutboxByUserID" FunctionName="DB.Store.GetAllMessageByUserSendID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessageInboxByUserID_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="MessageUnRead" ColumnName="MessageUnRead" />
+          <ScalarProperty Name="MessageIsReply" ColumnName="MessageIsReply" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAdminByName" FunctionName="DB.Store.GetAdminByName" />
+    <EntitySetMapping Name="MenuConfigs">
+      <EntityTypeMapping TypeName="DB.MenuConfig">
+        <MappingFragment StoreEntitySet="MenuConfigs">
+          <ScalarProperty Name="MenuNo" ColumnName="MenuNo" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+          <ScalarProperty Name="MenuConfigName" ColumnName="MenuConfigName" />
+          <ScalarProperty Name="MenuConfigID" ColumnName="MenuConfigID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllMessagesUnRead" FunctionName="DB.Store.GetAllMessageUnRead">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessageInboxByUserID_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllMessageIsRead" FunctionName="DB.Store.GetAllMessageIsRead">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessageInboxByUserID_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllMessagesIsReply" FunctionName="DB.Store.GetAllMessageIsReply">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessageInboxByUserID_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllBlogByUserID" FunctionName="DB.Store.GetAllBlogsByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllBlogs_Result">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserIDByName" FunctionName="DB.Store.GetUserIDByName" />
+    <FunctionImportMapping FunctionImportName="GetAllFriendsByUser" FunctionName="DB.Store.GetAllFriendsByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllFriendsByUser_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserNameOfFriend" ColumnName="UserNameOfFriend" />
+          <ScalarProperty Name="FullNameOfFriend" ColumnName="FullNameOfFriend" />
+          <ScalarProperty Name="PictureOfFriend" ColumnName="PictureOfFriend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllBlogOfFriends" FunctionName="DB.Store.GetAllBlogsOfFriend">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllBlogOfFriends_Result">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAlbumByID" FunctionName="DB.Store.GetAlbumById" />
+    <FunctionImportMapping FunctionImportName="GetMaxIDAlbum" FunctionName="DB.Store.GetMaxIDAlbum" />
+    <FunctionImportMapping FunctionImportName="GetAlbumInfo" FunctionName="DB.Store.GetAlbumInfo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAlbumInfo_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AlbumType" ColumnName="AlbumType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAlbumStatus" FunctionName="DB.Store.GetAlbumStatus">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAlbumStatus_Result">
+          <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAlbumInfoById" FunctionName="DB.Store.GetAlbumInfoById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAlbumInfoById_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AlbumType" ColumnName="AlbumType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteAlbum" FunctionName="DB.Store.DeleteAlbum" />
+    <FunctionImportMapping FunctionImportName="DeletePhotoByAlbum" FunctionName="DB.Store.DeletePhotoByAlbum" />
+    <FunctionImportMapping FunctionImportName="GetPhotoByAlbum" FunctionName="DB.Store.GetPhotoByAlbum" />
+    <FunctionImportMapping FunctionImportName="GetUserName" FunctionName="DB.Store.GetUserName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetUserName_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByName" FunctionName="DB.Store.GetUserByName" />
+    <FunctionImportMapping FunctionImportName="GetAlbumAndPhoto" FunctionName="DB.Store.GetAlbumAndPhoto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAlbumAndPhoto_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCommentsByBlog" FunctionName="DB.Store.GetAllCommentsByBlogID" />
+    <FunctionImportMapping FunctionImportName="GetDefaultEvent" FunctionName="DB.Store.GetDefaultEvent" />
+    <FunctionImportMapping FunctionImportName="GetDefaultUser" FunctionName="DB.Store.GetDefaultUser" />
+    <FunctionImportMapping FunctionImportName="GetAllCommentsEvent" FunctionName="DB.Store.GetAllCommentsEvent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllCommentsEvent_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCommentByEventID" FunctionName="DB.Store.GetAllCommentsByEventID" />
+    <FunctionImportMapping FunctionImportName="GetDefaultBlog" FunctionName="DB.Store.GetDefaultBlog" />
+    <FunctionImportMapping FunctionImportName="GetTopEventTypical" FunctionName="DB.Store.GetTopEventTypical" />
+    <FunctionImportMapping FunctionImportName="GetTopCommentTypicalEvent" FunctionName="DB.Store.GetTopCommentTypicalEvent">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllCommentsEvent_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UserSearch" FunctionName="DB.Store.UserSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.UserSearch_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllAlbumByUser" FunctionName="DB.Store.GetAllAlbumByUserID" />
+    <FunctionImportMapping FunctionImportName="GetTopFiveNewEvent" FunctionName="DB.Store.GetTopFiveNewEvents">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetTopFiveNewEvent_Result">
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventImages" ColumnName="EventImages" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTopFiveBlogByUserID" FunctionName="DB.Store.GetTopFiveBlogByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetTopFiveBlogByUserID_Result">
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetTopFiveAlbumAndPhotoByUserID" FunctionName="DB.Store.GetTopFiveAlbumAndPhotoByUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetTopFiveAlbumAndPhotoByUserID_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="AlbumDate" ColumnName="AlbumDate" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ActiveUser" FunctionName="DB.Store.ActiveUser" />
+    <FunctionImportMapping FunctionImportName="DeleteUser" FunctionName="DB.Store.DeleteUser" />
+    <FunctionImportMapping FunctionImportName="CancelUserVIP" FunctionName="DB.Store.CancelUserVIP" />
+    <FunctionImportMapping FunctionImportName="UpGradeUserVIP" FunctionName="DB.Store.UpGradeUserVIP" />
+    <FunctionImportMapping FunctionImportName="DeActivateUser" FunctionName="DB.Store.DeActivateUser" />
+    <FunctionImportMapping FunctionImportName="ApprovePhoto" FunctionName="DB.Store.ApprovePhoto" />
+    <FunctionImportMapping FunctionImportName="UnApprovePhoto" FunctionName="DB.Store.UnApprovePhoto" />
+    <FunctionImportMapping FunctionImportName="GetUsers" FunctionName="DB.Store.GetUsers" />
+    <FunctionImportMapping FunctionImportName="GetPhotoByUser" FunctionName="DB.Store.GetPhotoByUser" />
+    <FunctionImportMapping FunctionImportName="GetUserInfoByName" FunctionName="DB.Store.GetUserInfoByName" />
+    <FunctionImportMapping FunctionImportName="GetAlbumShareByUser" FunctionName="DB.Store.GetAlbumShareByUser" />
+    <FunctionImportMapping FunctionImportName="GetAllCommentRelationByCommentID" FunctionName="DB.Store.GetAllCommentRelationByCommentID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllCommentRelationByCommentID_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCommentsByWall" FunctionName="DB.Store.GetAllCommentByWall">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllCommentsByWall_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetDefaultComment" FunctionName="DB.Store.GetDefaultComment" />
+    <FunctionImportMapping FunctionImportName="GetTopTreeConsulting" FunctionName="DB.Store.GetTopTreeConsulting">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllConsultings_Result">
+          <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultingQuestions" ColumnName="ConsultingQuestions" />
+          <ScalarProperty Name="ConsultingAnwsers" ColumnName="ConsultingAnwsers" />
+          <ScalarProperty Name="ConsultingDesction" ColumnName="ConsultingDesction" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="Consultings">
+      <EntityTypeMapping TypeName="DB.Consulting">
+        <MappingFragment StoreEntitySet="Consultings">
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+          <ScalarProperty Name="ConsultingDesction" ColumnName="ConsultingDesction" />
+          <ScalarProperty Name="ConsultingAnwsers" ColumnName="ConsultingAnwsers" />
+          <ScalarProperty Name="ConsultingQuestions" ColumnName="ConsultingQuestions" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCommentsOrderByDatePost" FunctionName="DB.Store.GetAllCommentsOrderByDatePost">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllComments_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMemberAlbum" FunctionName="DB.Store.GetMemberAlbum">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetMemberAlbum_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="NumberPho" ColumnName="NumberPho" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllUsersCanMakeFriendsByCurrentUserID" FunctionName="DB.Store.GetAllUsersCanMakeFriendsByCurrentUserID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchAllFriendsOfCurrentUserIdByFullName" FunctionName="DB.Store.SearchAllFriendsOfCurrentUserIdByFullName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllFriendsOfCurrentUserByID_Result">
+          <ScalarProperty Name="UserIdOfFriend" ColumnName="UserIdOfFriend" />
+          <ScalarProperty Name="UserNameOfFriend" ColumnName="UserNameOfFriend" />
+          <ScalarProperty Name="FullNameOfFriend" ColumnName="FullNameOfFriend" />
+          <ScalarProperty Name="PictureOfFriend" ColumnName="PictureOfFriend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllFriendsOfCurrentUserByID" FunctionName="DB.Store.GetAllFriendsOfCurrentUserByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllFriendsOfCurrentUserByID_Result">
+          <ScalarProperty Name="UserIdOfFriend" ColumnName="UserIdOfFriend" />
+          <ScalarProperty Name="UserNameOfFriend" ColumnName="UserNameOfFriend" />
+          <ScalarProperty Name="FullNameOfFriend" ColumnName="FullNameOfFriend" />
+          <ScalarProperty Name="PictureOfFriend" ColumnName="PictureOfFriend" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="OlineSupports">
+      <EntityTypeMapping TypeName="DB.OlineSupport">
+        <MappingFragment StoreEntitySet="OlineSupport">
+          <ScalarProperty Name="OSHost" ColumnName="OSHost" />
+          <ScalarProperty Name="OSPort" ColumnName="OSPort" />
+          <ScalarProperty Name="Fax1" ColumnName="Fax1" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="OSPwdEmailFrom" ColumnName="OSPwdEmailFrom" />
+          <ScalarProperty Name="OSEmailFrom" ColumnName="OSEmailFrom" />
+          <ScalarProperty Name="OSEmailTo2" ColumnName="OSEmailTo2" />
+          <ScalarProperty Name="OSEmailTo1" ColumnName="OSEmailTo1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="OSSkype2" ColumnName="OSSkype2" />
+          <ScalarProperty Name="OSSkype1" ColumnName="OSSkype1" />
+          <ScalarProperty Name="OSYahoo2" ColumnName="OSYahoo2" />
+          <ScalarProperty Name="OSYahoo1" ColumnName="OSYahoo1" />
+          <ScalarProperty Name="OSCellPhone2" ColumnName="OSCellPhone2" />
+          <ScalarProperty Name="OSCellPhone1" ColumnName="OSCellPhone1" />
+          <ScalarProperty Name="OSPhone2" ColumnName="OSPhone2" />
+          <ScalarProperty Name="OSPhone1" ColumnName="OSPhone1" />
+          <ScalarProperty Name="OSID" ColumnName="OSID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="GetUserByID" FunctionName="DB.Store.GetUserByID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetUserByID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="CheckUserEmail" FunctionName="DB.Store.CheckUserEmail" />
+    <FunctionImportMapping FunctionImportName="OSDelete" FunctionName="DB.Store.OSDelete" />
+    <FunctionImportMapping FunctionImportName="OSActive" FunctionName="DB.Store.OSActive" />
+    <FunctionImportMapping FunctionImportName="OSDeActivate" FunctionName="DB.Store.OSDeActivate" />
+    <FunctionImportMapping FunctionImportName="GetEmailConfigSupport" FunctionName="DB.Store.GetEmailConfigSupport">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetEmailConfigSupport_Result">
+          <ScalarProperty Name="OSEmailTo1" ColumnName="OSEmailTo1" />
+          <ScalarProperty Name="OSEmailTo2" ColumnName="OSEmailTo2" />
+          <ScalarProperty Name="OSEmailFrom" ColumnName="OSEmailFrom" />
+          <ScalarProperty Name="OSPwdEmailFrom" ColumnName="OSPwdEmailFrom" />
+          <ScalarProperty Name="OSPort" ColumnName="OSPort" />
+          <ScalarProperty Name="OSHost" ColumnName="OSHost" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateMessageToRead" FunctionName="DB.Store.UpdateMessageToRead" />
+    <FunctionImportMapping FunctionImportName="DeleteFriendFromFriendsList" FunctionName="DB.Store.DeleteFriendFromFriendsList" />
+    <FunctionImportMapping FunctionImportName="GetAllUsersIWantToMakeFriends" FunctionName="DB.Store.GetAllUsersIWantToMakeFriends">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllUsersWantToMakeFriendsWithMe" FunctionName="DB.Store.GetAllUsersWantToMakeFriendsWithMe">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsersWantToMakeFriendsWithMe_Result">
+          <ScalarProperty Name="UserIdOfFriend" ColumnName="UserIdOfFriend" />
+          <ScalarProperty Name="UserNameOfFriend" ColumnName="UserNameOfFriend" />
+          <ScalarProperty Name="UserFullNameOfFriend" ColumnName="UserFullNameOfFriend" />
+          <ScalarProperty Name="UserPictureOfFriend" ColumnName="UserPictureOfFriend" />
+          <ScalarProperty Name="UserBirthdayOfFriend" ColumnName="UserBirthdayOfFriend" />
+          <ScalarProperty Name="UserGenderOfFriend" ColumnName="UserGenderOfFriend" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SearchAllNewFriendsByCurrentUserIdAndFullName" FunctionName="DB.Store.SearchAllNewFriendsByCurrentUserIdAndFullName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="UpdateStatusToFriends" FunctionName="DB.Store.UpdateStatusToFriends" />
+    <FunctionImportMapping FunctionImportName="Admin_AdvanceSearchByConsultants" FunctionName="DB.Store.Admin_AdvanceSearchByConsultants">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllConsultants_Result">
+          <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+          <ScalarProperty Name="ConsultantEmail" ColumnName="ConsultantEmail" />
+          <ScalarProperty Name="ConsultantPhone" ColumnName="ConsultantPhone" />
+          <ScalarProperty Name="ConsultantYahooID" ColumnName="ConsultantYahooID" />
+          <ScalarProperty Name="ConsultantSkypeID" ColumnName="ConsultantSkypeID" />
+          <ScalarProperty Name="ConsultantPicture" ColumnName="ConsultantPicture" />
+          <ScalarProperty Name="ConsultantDesc" ColumnName="ConsultantDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_AdvanceSearchByUsers" FunctionName="DB.Store.Admin_AdvanceSearchByUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SearchAllConsultantsByName" FunctionName="DB.Store.Admin_SearchAllConsultantsByName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllConsultants_Result">
+          <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+          <ScalarProperty Name="ConsultantEmail" ColumnName="ConsultantEmail" />
+          <ScalarProperty Name="ConsultantPhone" ColumnName="ConsultantPhone" />
+          <ScalarProperty Name="ConsultantYahooID" ColumnName="ConsultantYahooID" />
+          <ScalarProperty Name="ConsultantSkypeID" ColumnName="ConsultantSkypeID" />
+          <ScalarProperty Name="ConsultantPicture" ColumnName="ConsultantPicture" />
+          <ScalarProperty Name="ConsultantDesc" ColumnName="ConsultantDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_SearchAllUsersByFullName" FunctionName="DB.Store.Admin_SearchAllUsersByFullName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Users_AdvanceSearch" FunctionName="DB.Store.Users_AdvanceSearch">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetUserInfoByID" FunctionName="DB.Store.GetUserByIdUser" />
+    <FunctionImportMapping FunctionImportName="DeleteVIPVideo" FunctionName="DB.Store.DeleteVIPVideo" />
+    <FunctionImportMapping FunctionImportName="GetAllShareVideo" FunctionName="DB.Store.GetAllShareVideo" />
+    <FunctionImportMapping FunctionImportName="GetShareVideo" FunctionName="DB.Store.GetShareVideo" />
+    <FunctionImportMapping FunctionImportName="UserExistInFriendsList" FunctionName="DB.Store.UserExistInFriendsList" />
+    <FunctionImportMapping FunctionImportName="Member_SearchAllMessageByTitle" FunctionName="DB.Store.Member_SearchAllMessageByTitle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessageInboxByUserID_Result">
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="MessageUnRead" ColumnName="MessageUnRead" />
+          <ScalarProperty Name="MessageIsReply" ColumnName="MessageIsReply" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="DeleteCommentRelation" FunctionName="DB.Store.DeleteCommentRelation" />
+    <FunctionImportMapping FunctionImportName="GetTopNewCommentRelationByCommentID" FunctionName="DB.Store.GetTopNewCommentRelationByCommentID">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllCommentRelationByCommentID_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetMemberAlbumAndPhoto" FunctionName="DB.Store.GetMemberAlbumAndPhoto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAlbumAndPhoto_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllUsersHaveBirthdayInCurrentMonth" FunctionName="DB.Store.GetAllUsersHaveBirthdayInCurrentMonth">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_FilterForAlbums" FunctionName="DB.Store.Admin_FilterForAlbums">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAlbumInfo_Result">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AlbumType" ColumnName="AlbumType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_FilterForUsers" FunctionName="DB.Store.Admin_FilterForUsers">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllUsers_Result">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_FilterForBlogs" FunctionName="DB.Store.Admin_FilterForBlogs">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllBlogs_Result">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_FilterForComments" FunctionName="DB.Store.Admin_FilterForComments">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllComments_Result">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="UserWall" ColumnName="UserWall" />
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+          <ScalarProperty Name="CommentType" ColumnName="CommentType" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_FilterForMessages" FunctionName="DB.Store.Admin_FilterForMessages">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllMessages_Result">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="UserNameSend" ColumnName="UserNameSend" />
+          <ScalarProperty Name="FullNameSend" ColumnName="FullNameSend" />
+          <ScalarProperty Name="UserNameReceipt" ColumnName="UserNameReceipt" />
+          <ScalarProperty Name="UserFullNameReceipt" ColumnName="UserFullNameReceipt" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Admin_FilterPhotos" FunctionName="DB.Store.Admin_FilterPhotos">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="DB.GetAllPhotos_Result">
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="StatusText" ColumnName="StatusText" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="GetAllCommentsByUserID" FunctionName="DB.Store.GetAllCommentsByUserID" />
+    <FunctionImportMapping FunctionImportName="DeleteAllMessageByUserID" FunctionName="DB.Store.DeleteAllMessageByUserID" />
+    <FunctionImportMapping FunctionImportName="DeleteAllCommentByUserID" FunctionName="DB.Store.DeleteAllCommentByUserID" />
+    <FunctionImportMapping FunctionImportName="DeleteAllFriendByUserID" FunctionName="DB.Store.DeleteAllFriendByUserID" />
+    <FunctionImportMapping FunctionImportName="DeleteShareVideoByUserID" FunctionName="DB.Store.DeleteShareVideoByUserID" />
+  </EntityContainerMapping>
+</Mapping>

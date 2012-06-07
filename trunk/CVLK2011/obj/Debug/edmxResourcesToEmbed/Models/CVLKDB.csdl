@@ -1,0 +1,295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CVLKDBModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="CVLKDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Ads" EntityType="CVLKDBModel.Ad" />
+    <EntitySet Name="Admins" EntityType="CVLKDBModel.Admin" />
+    <EntitySet Name="Albums" EntityType="CVLKDBModel.Album" />
+    <EntitySet Name="Blogs" EntityType="CVLKDBModel.Blog" />
+    <EntitySet Name="Comments" EntityType="CVLKDBModel.Comment" />
+    <EntitySet Name="Events" EntityType="CVLKDBModel.Event" />
+    <EntitySet Name="Friends" EntityType="CVLKDBModel.Friend" />
+    <EntitySet Name="Photos" EntityType="CVLKDBModel.Photo" />
+    <EntitySet Name="sysdiagrams" EntityType="CVLKDBModel.sysdiagram" />
+    <EntitySet Name="Users" EntityType="CVLKDBModel.User" />
+    <EntitySet Name="VIPVideos" EntityType="CVLKDBModel.VIPVideo" />
+    <AssociationSet Name="FK_Photo_Album" Association="CVLKDBModel.FK_Photo_Album">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Photo" EntitySet="Photos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blog_User" Association="CVLKDBModel.FK_Blog_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Blog" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Blog" Association="CVLKDBModel.FK_Comment_Blog">
+      <End Role="Blog" EntitySet="Blogs" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_User" Association="CVLKDBModel.FK_Comment_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Friends_User" Association="CVLKDBModel.FK_Friends_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Friends_User1" Association="CVLKDBModel.FK_Friends_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VIPVideo_User" Association="CVLKDBModel.FK_VIPVideo_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VIPVideo" EntitySet="VIPVideos" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VIPVideo_User1" Association="CVLKDBModel.FK_VIPVideo_User1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VIPVideo" EntitySet="VIPVideos" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ad">
+    <Key>
+      <PropertyRef Name="AdID" />
+    </Key>
+    <Property Name="AdID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Link" Type="String" Nullable="false" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="IsVisible" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" Unicode="true" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+    </Key>
+    <Property Name="AlbumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumName" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Photos" Relationship="CVLKDBModel.FK_Photo_Album" FromRole="Album" ToRole="Photo" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="BlogTitle" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="BlogContent" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="ImageUpload" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="Datepost" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="CVLKDBModel.FK_Blog_User" FromRole="Blog" ToRole="User" />
+    <NavigationProperty Name="Comments" Relationship="CVLKDBModel.FK_Comment_Blog" FromRole="Blog" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="BlogID" Type="Int32" Nullable="false" />
+    <Property Name="CommentContent" Type="String" Nullable="false" MaxLength="200" Unicode="true" FixedLength="false" />
+    <Property Name="Datepost" Type="DateTime" Nullable="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <NavigationProperty Name="Blog" Relationship="CVLKDBModel.FK_Comment_Blog" FromRole="Comment" ToRole="Blog" />
+    <NavigationProperty Name="User" Relationship="CVLKDBModel.FK_Comment_User" FromRole="Comment" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EventTitle" Type="String" Nullable="false" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Description" Type="String" Nullable="false" MaxLength="500" Unicode="true" FixedLength="false" />
+    <Property Name="EventContent" Type="String" Nullable="false" MaxLength="1000" Unicode="true" FixedLength="false" />
+    <Property Name="Datepost" Type="DateTime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FriendID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="FriendID" Type="Int32" Nullable="false" />
+    <Property Name="Status" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="CVLKDBModel.FK_Friends_User" FromRole="Friends" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CVLKDBModel.FK_Friends_User1" FromRole="Friends" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="PhotoID" />
+    </Key>
+    <Property Name="PhotoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AlbumID" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Status" Type="Int16" Nullable="false" />
+    <Property Name="DateUpload" Type="DateTime" Nullable="false" />
+    <NavigationProperty Name="Album" Relationship="CVLKDBModel.FK_Photo_Album" FromRole="Photo" ToRole="Album" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Address" Type="String" MaxLength="100" Unicode="true" FixedLength="false" />
+    <Property Name="Email" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="Phone" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="UserName" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="Password" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="UserImage" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="CID" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="Birthday" Type="DateTime" />
+    <Property Name="Sex" Type="Boolean" />
+    <Property Name="TrinhDoVanHoa" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="TonGiao" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="TinhTrangHonNhan" Type="Boolean" />
+    <Property Name="NgheNghiep" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ViTriCongViec" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="MucLuong" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="ThoiGianLamViec" Type="String" MaxLength="20" Unicode="true" FixedLength="false" />
+    <Property Name="MauSacYeuThich" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="LoaiSachThichDoc" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="ThuCungYeuThich" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MauNguoiBanThich" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="MauNguoiBanGhet" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="SoThichRieng" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="DoiTuongMuonTim" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="YeuCauRieng" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <Property Name="PasswordRecovery" Type="String" MaxLength="10" Unicode="true" FixedLength="false" />
+    <Property Name="IsVip" Type="Boolean" />
+    <Property Name="DatePayment" Type="DateTime" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="VideoUploadPath" Type="String" MaxLength="50" Unicode="true" FixedLength="false" />
+    <NavigationProperty Name="Blogs" Relationship="CVLKDBModel.FK_Blog_User" FromRole="User" ToRole="Blog" />
+    <NavigationProperty Name="Comments" Relationship="CVLKDBModel.FK_Comment_User" FromRole="User" ToRole="Comment" />
+    <NavigationProperty Name="Friends" Relationship="CVLKDBModel.FK_Friends_User" FromRole="User" ToRole="Friends" />
+    <NavigationProperty Name="Friends1" Relationship="CVLKDBModel.FK_Friends_User1" FromRole="User" ToRole="Friends" />
+    <NavigationProperty Name="VIPVideos" Relationship="CVLKDBModel.FK_VIPVideo_User" FromRole="User" ToRole="VIPVideo" />
+    <NavigationProperty Name="VIPVideos1" Relationship="CVLKDBModel.FK_VIPVideo_User1" FromRole="User" ToRole="VIPVideo" />
+  </EntityType>
+  <EntityType Name="VIPVideo">
+    <Key>
+      <PropertyRef Name="VipVideoID" />
+    </Key>
+    <Property Name="VipVideoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserID" Type="Int32" Nullable="false" />
+    <Property Name="VideoPartnerID" Type="Int32" Nullable="false" />
+    <Property Name="DateCreate" Type="DateTime" Nullable="false" />
+    <Property Name="Isdeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="CVLKDBModel.FK_VIPVideo_User" FromRole="VIPVideo" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="CVLKDBModel.FK_VIPVideo_User1" FromRole="VIPVideo" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Photo_Album">
+    <End Role="Album" Type="CVLKDBModel.Album" Multiplicity="1" />
+    <End Role="Photo" Type="CVLKDBModel.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumID" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="AlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blog_User">
+    <End Role="User" Type="CVLKDBModel.User" Multiplicity="1" />
+    <End Role="Blog" Type="CVLKDBModel.Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Blog">
+    <End Role="Blog" Type="CVLKDBModel.Blog" Multiplicity="1" />
+    <End Role="Comment" Type="CVLKDBModel.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blog">
+        <PropertyRef Name="BlogID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="BlogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_User">
+    <End Role="User" Type="CVLKDBModel.User" Multiplicity="1" />
+    <End Role="Comment" Type="CVLKDBModel.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Friends_User">
+    <End Role="User" Type="CVLKDBModel.User" Multiplicity="1" />
+    <End Role="Friends" Type="CVLKDBModel.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Friends_User1">
+    <End Role="User" Type="CVLKDBModel.User" Multiplicity="1" />
+    <End Role="Friends" Type="CVLKDBModel.Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VIPVideo_User">
+    <End Role="User" Type="CVLKDBModel.User" Multiplicity="1" />
+    <End Role="VIPVideo" Type="CVLKDBModel.VIPVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="VIPVideo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VIPVideo_User1">
+    <End Role="User" Type="CVLKDBModel.User" Multiplicity="1" />
+    <End Role="VIPVideo" Type="CVLKDBModel.VIPVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="VIPVideo">
+        <PropertyRef Name="VideoPartnerID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

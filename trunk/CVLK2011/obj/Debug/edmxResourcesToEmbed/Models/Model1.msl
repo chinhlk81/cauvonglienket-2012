@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cauvonglienket_ModelStoreContainer" CdmEntityContainer="cauvonglienket_dbEntities">
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Type" ColumnName="Type" />
+          <ScalarProperty Name="PCIP" ColumnName="PCIP" />
+          <ScalarProperty Name="AllowLogOn" ColumnName="AllowLogOn" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Ads">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Ad">
+        <MappingFragment StoreEntitySet="Ads">
+          <ScalarProperty Name="AdID" ColumnName="AdID" />
+          <ScalarProperty Name="AAStatus" ColumnName="AAStatus" />
+          <ScalarProperty Name="AACreateDate" ColumnName="AACreateDate" />
+          <ScalarProperty Name="AdImagePath" ColumnName="AdImagePath" />
+          <ScalarProperty Name="AdImageThumbPath" ColumnName="AdImageThumbPath" />
+          <ScalarProperty Name="AdLink" ColumnName="AdLink" />
+          <ScalarProperty Name="AdDesc" ColumnName="AdDesc" />
+          <ScalarProperty Name="AdTitle" ColumnName="AdTitle" />
+          <ScalarProperty Name="AdContent" ColumnName="AdContent" />
+          <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
+          <ScalarProperty Name="Position" ColumnName="Position" />
+          <ScalarProperty Name="OnPage" ColumnName="OnPage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="AlbumType" ColumnName="AlbumType" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="AlbumDate" ColumnName="AlbumDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Careers">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Career">
+        <MappingFragment StoreEntitySet="Career">
+          <ScalarProperty Name="CareerID" ColumnName="CareerID" />
+          <ScalarProperty Name="CareerName" ColumnName="CareerName" />
+          <ScalarProperty Name="CareerDesc" ColumnName="CareerDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="CommentParentID" ColumnName="CommentParentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserWall" ColumnName="UserWall" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+          <ScalarProperty Name="CommentType" ColumnName="CommentType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConfigValues">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.ConfigValue">
+        <MappingFragment StoreEntitySet="ConfigValues">
+          <ScalarProperty Name="ConfigValueID" ColumnName="ConfigValueID" />
+          <ScalarProperty Name="ConfigKey" ColumnName="ConfigKey" />
+          <ScalarProperty Name="ConfigKeyValue" ColumnName="ConfigKeyValue" />
+          <ScalarProperty Name="ConfigText" ColumnName="ConfigText" />
+          <ScalarProperty Name="ConfigKeyDesc" ColumnName="ConfigKeyDesc" />
+          <ScalarProperty Name="ConfigKeyGroup" ColumnName="ConfigKeyGroup" />
+          <ScalarProperty Name="ConfigValueSortOrder" ColumnName="ConfigValueSortOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consultants">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Consultant">
+        <MappingFragment StoreEntitySet="Consultants">
+          <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
+          <ScalarProperty Name="ConsultantEmail" ColumnName="ConsultantEmail" />
+          <ScalarProperty Name="ConsultantPhone" ColumnName="ConsultantPhone" />
+          <ScalarProperty Name="ConsultantYahooID" ColumnName="ConsultantYahooID" />
+          <ScalarProperty Name="ConsultantSkypeID" ColumnName="ConsultantSkypeID" />
+          <ScalarProperty Name="ConsultantPicture" ColumnName="ConsultantPicture" />
+          <ScalarProperty Name="ConsultantDesc" ColumnName="ConsultantDesc" />
+          <ScalarProperty Name="ConsultantFrontPage" ColumnName="ConsultantFrontPage" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Consultings">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Consulting">
+        <MappingFragment StoreEntitySet="Consultings">
+          <ScalarProperty Name="ConsultingID" ColumnName="ConsultingID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ConsultingQuestions" ColumnName="ConsultingQuestions" />
+          <ScalarProperty Name="ConsultingAnwsers" ColumnName="ConsultingAnwsers" />
+          <ScalarProperty Name="ConsultingDesction" ColumnName="ConsultingDesction" />
+          <ScalarProperty Name="DatePost" ColumnName="DatePost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EventParents">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.EventParent">
+        <MappingFragment StoreEntitySet="EventParents">
+          <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+          <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Event">
+        <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_EventParentID" ColumnName="FK_EventParentID" />
+          <ScalarProperty Name="FK_AlbumID" ColumnName="FK_AlbumID" />
+          <ScalarProperty Name="EventName" ColumnName="EventName" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventContent" ColumnName="EventContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="EventLocation" ColumnName="EventLocation" />
+          <ScalarProperty Name="EventTime" ColumnName="EventTime" />
+          <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+          <ScalarProperty Name="EventAgeJoint" ColumnName="EventAgeJoint" />
+          <ScalarProperty Name="EventImages" ColumnName="EventImages" />
+          <ScalarProperty Name="IsTypical" ColumnName="IsTypical" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Friend">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuConfigs">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.MenuConfig">
+        <MappingFragment StoreEntitySet="MenuConfigs">
+          <ScalarProperty Name="MenuConfigID" ColumnName="MenuConfigID" />
+          <ScalarProperty Name="MenuConfigName" ColumnName="MenuConfigName" />
+          <ScalarProperty Name="MenuNo" ColumnName="MenuNo" />
+          <ScalarProperty Name="Contents" ColumnName="Contents" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Messages">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Message">
+        <MappingFragment StoreEntitySet="Messages">
+          <ScalarProperty Name="MessageID" ColumnName="MessageID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="FK_UserSendID" ColumnName="FK_UserSendID" />
+          <ScalarProperty Name="FK_UserReceiptID" ColumnName="FK_UserReceiptID" />
+          <ScalarProperty Name="MessageDatetime" ColumnName="MessageDatetime" />
+          <ScalarProperty Name="MessageTitle" ColumnName="MessageTitle" />
+          <ScalarProperty Name="MessageContent" ColumnName="MessageContent" />
+          <ScalarProperty Name="MessageDesc" ColumnName="MessageDesc" />
+          <ScalarProperty Name="MessageUnRead" ColumnName="MessageUnRead" />
+          <ScalarProperty Name="MessageIsReply" ColumnName="MessageIsReply" />
+          <ScalarProperty Name="MessageType" ColumnName="MessageType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OlineSupports">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.OlineSupport">
+        <MappingFragment StoreEntitySet="OlineSupport">
+          <ScalarProperty Name="OSID" ColumnName="OSID" />
+          <ScalarProperty Name="OSPhone1" ColumnName="OSPhone1" />
+          <ScalarProperty Name="OSPhone2" ColumnName="OSPhone2" />
+          <ScalarProperty Name="OSCellPhone1" ColumnName="OSCellPhone1" />
+          <ScalarProperty Name="OSCellPhone2" ColumnName="OSCellPhone2" />
+          <ScalarProperty Name="OSEmailTo1" ColumnName="OSEmailTo1" />
+          <ScalarProperty Name="OSEmailTo2" ColumnName="OSEmailTo2" />
+          <ScalarProperty Name="OSEmailFrom" ColumnName="OSEmailFrom" />
+          <ScalarProperty Name="OSPwdEmailFrom" ColumnName="OSPwdEmailFrom" />
+          <ScalarProperty Name="OSPort" ColumnName="OSPort" />
+          <ScalarProperty Name="OSHost" ColumnName="OSHost" />
+          <ScalarProperty Name="OSYahoo1" ColumnName="OSYahoo1" />
+          <ScalarProperty Name="OSYahoo2" ColumnName="OSYahoo2" />
+          <ScalarProperty Name="OSSkype1" ColumnName="OSSkype1" />
+          <ScalarProperty Name="OSSkype2" ColumnName="OSSkype2" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Address1" ColumnName="Address1" />
+          <ScalarProperty Name="Fax" ColumnName="Fax" />
+          <ScalarProperty Name="Fax1" ColumnName="Fax1" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+          <ScalarProperty Name="PhotoOriginal" ColumnName="PhotoOriginal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Provinces">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.Province">
+        <MappingFragment StoreEntitySet="Province">
+          <ScalarProperty Name="ProvinceID" ColumnName="ProvinceID" />
+          <ScalarProperty Name="ProvinceName" ColumnName="ProvinceName" />
+          <ScalarProperty Name="ProvinceDesc" ColumnName="ProvinceDesc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="UserStatus" ColumnName="UserStatus" />
+          <ScalarProperty Name="UserFullName" ColumnName="UserFullName" />
+          <ScalarProperty Name="UserAddLine" ColumnName="UserAddLine" />
+          <ScalarProperty Name="UserAddCity" ColumnName="UserAddCity" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserPhone" ColumnName="UserPhone" />
+          <ScalarProperty Name="UserEmail" ColumnName="UserEmail" />
+          <ScalarProperty Name="UserPicture" ColumnName="UserPicture" />
+          <ScalarProperty Name="UserIDCard" ColumnName="UserIDCard" />
+          <ScalarProperty Name="UserBirthday" ColumnName="UserBirthday" />
+          <ScalarProperty Name="UserGender" ColumnName="UserGender" />
+          <ScalarProperty Name="UserLevel" ColumnName="UserLevel" />
+          <ScalarProperty Name="UserReligion" ColumnName="UserReligion" />
+          <ScalarProperty Name="UserMaritalStatus" ColumnName="UserMaritalStatus" />
+          <ScalarProperty Name="UserCareer" ColumnName="UserCareer" />
+          <ScalarProperty Name="UserJobPosition" ColumnName="UserJobPosition" />
+          <ScalarProperty Name="UserWage" ColumnName="UserWage" />
+          <ScalarProperty Name="UserWorkingTime" ColumnName="UserWorkingTime" />
+          <ScalarProperty Name="UserFavColor" ColumnName="UserFavColor" />
+          <ScalarProperty Name="UserReadingBook" ColumnName="UserReadingBook" />
+          <ScalarProperty Name="UserFavPet" ColumnName="UserFavPet" />
+          <ScalarProperty Name="UserPeopleLike" ColumnName="UserPeopleLike" />
+          <ScalarProperty Name="UserPeopleDislike" ColumnName="UserPeopleDislike" />
+          <ScalarProperty Name="UserHobby" ColumnName="UserHobby" />
+          <ScalarProperty Name="UserLookingObj" ColumnName="UserLookingObj" />
+          <ScalarProperty Name="UserRequirements" ColumnName="UserRequirements" />
+          <ScalarProperty Name="UserPwdRecovery" ColumnName="UserPwdRecovery" />
+          <ScalarProperty Name="UserIsVIP" ColumnName="UserIsVIP" />
+          <ScalarProperty Name="UserDatePayment" ColumnName="UserDatePayment" />
+          <ScalarProperty Name="UserVideoUpload" ColumnName="UserVideoUpload" />
+          <ScalarProperty Name="UserDescriptions" ColumnName="UserDescriptions" />
+          <ScalarProperty Name="UserHeight" ColumnName="UserHeight" />
+          <ScalarProperty Name="UserWeight" ColumnName="UserWeight" />
+          <ScalarProperty Name="UserHope" ColumnName="UserHope" />
+          <ScalarProperty Name="UserFavFoods" ColumnName="UserFavFoods" />
+          <ScalarProperty Name="UserTimeContact" ColumnName="UserTimeContact" />
+          <ScalarProperty Name="UserOjbLikeDating" ColumnName="UserOjbLikeDating" />
+          <ScalarProperty Name="UserRegisterDate" ColumnName="UserRegisterDate" />
+          <ScalarProperty Name="UserEventParentID" ColumnName="UserEventParentID" />
+          <ScalarProperty Name="UserType" ColumnName="UserType" />
+          <ScalarProperty Name="VIPPeriod" ColumnName="VIPPeriod" />
+          <ScalarProperty Name="VIPRemain" ColumnName="VIPRemain" />
+          <ScalarProperty Name="UserAvatarUpload" ColumnName="UserAvatarUpload" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIPVideos">
+      <EntityTypeMapping TypeName="cauvonglienket_Model.VIPVideo">
+        <MappingFragment StoreEntitySet="VIPVideo">
+          <ScalarProperty Name="VipVideoID" ColumnName="VipVideoID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="VideoPartnerID" ColumnName="VideoPartnerID" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

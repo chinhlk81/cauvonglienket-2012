@@ -1,0 +1,86 @@
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\MvcApplication1\bin\CVLK2011.dll
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\MvcApplication1\bin\CVLK2011.pdb
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\MvcApplication1\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\MvcApplication1\obj\Debug\CVLK2011.dll
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\MvcApplication1\obj\Debug\CVLK2011.pdb
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\CVLK2011\bin\CVLK2011.dll
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\CVLK2011\bin\CVLK2011.pdb
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\CVLK2011\bin\System.Web.Mvc.xml
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\CVLK2011\obj\Debug\CVLK2011.dll
+C:\Users\ThaoVTP\Desktop\Temp\CVLK\CVLK\CVLKWebsite\CVLK2011\obj\Debug\CVLK2011.pdb
+D:\Customers\CauVongLienKet\CVLK2011\bin\CVLK2011.dll
+D:\Customers\CauVongLienKet\CVLK2011\bin\CVLK2011.pdb
+D:\Customers\CauVongLienKet\CVLK2011\bin\System.Web.Mvc.xml
+D:\Customers\CauVongLienKet\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+D:\Customers\CauVongLienKet\CVLK2011\obj\Debug\CVLK2011.dll
+D:\Customers\CauVongLienKet\CVLK2011\obj\Debug\CVLK2011.pdb
+C:\Documents and Settings\FFK\Desktop\CVLK2011_2402\CVLK2011\bin\CVLK2011.dll
+C:\Documents and Settings\FFK\Desktop\CVLK2011_2402\CVLK2011\bin\CVLK2011.pdb
+C:\Documents and Settings\FFK\Desktop\CVLK2011_2402\CVLK2011\bin\System.Web.Mvc.xml
+C:\Documents and Settings\FFK\Desktop\CVLK2011_2402\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\FFK\Desktop\CVLK2011_2402\CVLK2011\obj\Debug\CVLK2011.dll
+C:\Documents and Settings\FFK\Desktop\CVLK2011_2402\CVLK2011\obj\Debug\CVLK2011.pdb
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\bin\CVLK2011.dll
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\bin\CVLK2011.pdb
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\bin\System.Web.Abstractions.dll
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\bin\System.Web.Mvc.dll
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\bin\System.Web.Routing.dll
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\bin\System.Web.Mvc.xml
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\obj\Debug\CVLK2011.dll
+C:\Users\ThaoVTP\Downloads\CVLK2011(26-02-2011)\CVLK2011\obj\Debug\CVLK2011.pdb
+C:\Documents and Settings\FFK\Desktop\CVLK20112602_Thao\CVLK2011\bin\CVLK2011.dll
+C:\Documents and Settings\FFK\Desktop\CVLK20112602_Thao\CVLK2011\bin\CVLK2011.pdb
+C:\Documents and Settings\FFK\Desktop\CVLK20112602_Thao\CVLK2011\bin\System.Web.Mvc.xml
+C:\Documents and Settings\FFK\Desktop\CVLK20112602_Thao\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\FFK\Desktop\CVLK20112602_Thao\CVLK2011\obj\Debug\CVLK2011.dll
+C:\Documents and Settings\FFK\Desktop\CVLK20112602_Thao\CVLK2011\obj\Debug\CVLK2011.pdb
+D:\Customers\CauVongLienKet\CVLK2011-Subversion\CVLK2011\bin\CVLK2011.dll
+D:\Customers\CauVongLienKet\CVLK2011-Subversion\CVLK2011\bin\CVLK2011.pdb
+D:\Customers\CauVongLienKet\CVLK2011-Subversion\CVLK2011\bin\System.Web.Mvc.xml
+D:\Customers\CauVongLienKet\CVLK2011-Subversion\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+D:\Customers\CauVongLienKet\CVLK2011-Subversion\CVLK2011\obj\Debug\CVLK2011.dll
+D:\Customers\CauVongLienKet\CVLK2011-Subversion\CVLK2011\obj\Debug\CVLK2011.pdb
+D:\CVLK2011\CVLK2011\bin\CVLK2011.dll
+D:\CVLK2011\CVLK2011\bin\CVLK2011.pdb
+D:\CVLK2011\CVLK2011\bin\System.Web.Mvc.xml
+D:\CVLK2011\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+D:\CVLK2011\CVLK2011\obj\Debug\CVLK2011.dll
+D:\CVLK2011\CVLK2011\obj\Debug\CVLK2011.pdb
+D:\Customers\CauVongLienKet\Subversion\CVLK2011\bin\CVLK2011.dll
+D:\Customers\CauVongLienKet\Subversion\CVLK2011\bin\CVLK2011.pdb
+D:\Customers\CauVongLienKet\Subversion\CVLK2011\bin\System.Web.Mvc.xml
+D:\Customers\CauVongLienKet\Subversion\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+D:\Customers\CauVongLienKet\Subversion\CVLK2011\obj\Debug\CVLK2011.dll
+D:\Customers\CauVongLienKet\Subversion\CVLK2011\obj\Debug\CVLK2011.pdb
+D:\Customers\CauVongLienKet\Subversion\CVLK2011_Code\CVLK2011-CodeFunction\obj\Debug\ResolveAssemblyReference.cache
+D:\Customers\CauVongLienKet\Subversion\CVLK2011_Code\CVLK2011-CodeFunction\bin\CVLK2011.dll
+D:\Customers\CauVongLienKet\Subversion\CVLK2011_Code\CVLK2011-CodeFunction\bin\CVLK2011.pdb
+D:\Customers\CauVongLienKet\Subversion\CVLK2011_Code\CVLK2011-CodeFunction\obj\Debug\CVLK2011.dll
+D:\Customers\CauVongLienKet\Subversion\CVLK2011_Code\CVLK2011-CodeFunction\obj\Debug\CVLK2011.pdb
+D:\Customers\CauVongLienKet\Subversion\CVLK2011_Code\CVLK2011-CodeFunction\bin\System.Web.Mvc.xml
+D:\Customers\CauVongLienKet\20110526-Release\CVLK2011\bin\CVLK2011.dll
+D:\Customers\CauVongLienKet\20110526-Release\CVLK2011\bin\CVLK2011.pdb
+D:\Customers\CauVongLienKet\20110526-Release\CVLK2011\bin\System.Web.Mvc.xml
+D:\Customers\CauVongLienKet\20110526-Release\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+D:\Customers\CauVongLienKet\20110526-Release\CVLK2011\obj\Debug\CVLK2011.dll
+D:\Customers\CauVongLienKet\20110526-Release\CVLK2011\obj\Debug\CVLK2011.pdb
+E:\Working\vnecom\CauVongLienKet\Release final\CVLK20110604\CVLK2011\CVLK2011\bin\CVLK2011.dll
+E:\Working\vnecom\CauVongLienKet\Release final\CVLK20110604\CVLK2011\CVLK2011\bin\CVLK2011.pdb
+E:\Working\vnecom\CauVongLienKet\Release final\CVLK20110604\CVLK2011\CVLK2011\bin\FredCK.FCKeditorV2.dll
+E:\Working\vnecom\CauVongLienKet\Release final\CVLK20110604\CVLK2011\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+E:\Working\vnecom\CauVongLienKet\Release final\CVLK20110604\CVLK2011\CVLK2011\obj\Debug\CVLK2011.dll
+E:\Working\vnecom\CauVongLienKet\Release final\CVLK20110604\CVLK2011\CVLK2011\obj\Debug\CVLK2011.pdb
+D:\Software\Others\CVLK\SourceCode\CVLK2011\bin\CVLK2011.dll
+D:\Software\Others\CVLK\SourceCode\CVLK2011\bin\CVLK2011.pdb
+D:\Software\Others\CVLK\SourceCode\CVLK2011\bin\FredCK.FCKeditorV2.dll
+D:\Software\Others\CVLK\SourceCode\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+D:\Software\Others\CVLK\SourceCode\CVLK2011\obj\Debug\CVLK2011.dll
+D:\Software\Others\CVLK\SourceCode\CVLK2011\obj\Debug\CVLK2011.pdb
+E:\Working\vnecom\CauVongLienKet\CVLK\SourceCode\CVLK2011\bin\CVLK2011.dll
+E:\Working\vnecom\CauVongLienKet\CVLK\SourceCode\CVLK2011\bin\CVLK2011.pdb
+E:\Working\vnecom\CauVongLienKet\CVLK\SourceCode\CVLK2011\bin\FredCK.FCKeditorV2.dll
+E:\Working\vnecom\CauVongLienKet\CVLK\SourceCode\CVLK2011\obj\Debug\ResolveAssemblyReference.cache
+E:\Working\vnecom\CauVongLienKet\CVLK\SourceCode\CVLK2011\obj\Debug\CVLK2011.dll
+E:\Working\vnecom\CauVongLienKet\CVLK\SourceCode\CVLK2011\obj\Debug\CVLK2011.pdb

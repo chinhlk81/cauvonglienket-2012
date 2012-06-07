@@ -1,0 +1,948 @@
+﻿/* DEFAULTS
+----------------------------------------------------------*/
+
+* 
+{
+	
+	margin:0 auto;
+	padding: 0 auto;
+
+}
+
+body 
+{
+    padding: 0;
+    color: #696969;
+    
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:11px;
+	margin:0;
+	
+}
+
+#page
+{
+	background:#F9F9FB;
+	text-align:right;
+	}
+
+#wrapper 
+{
+	width: 920px;
+	
+	text-align:left;
+	 background: url(../Images/bg_new.png) repeat-y top left;
+	
+}
+#banner
+{
+	margin-left: auto;
+    margin-right: auto;
+    
+	position: relative;
+    margin-bottom: 0px;
+    color: #000;
+    padding: 0;
+    
+    clear:both;
+    width:900px;
+    height:100px;
+    
+  }
+#logo
+{
+   float:left;
+   width:900px;
+   height:533px;
+   background: url(../Images/bg_full.jpg) no-repeat top left;
+   
+   
+   }
+  #login
+  {
+      float:right;
+      width:650px;
+      height:100px;
+       background: url(../Images/banner_right.gif) no-repeat top left;
+    }
+    #tb_login
+    {
+    	float:right;
+    	width:250px;
+    }
+    #logindisplay
+    {
+    	float:right;
+    	width:250px;
+    	
+    }
+        
+#nav
+{
+    width:950px;
+ 
+ }
+ 
+#main
+{
+    width:900px;
+    background:#fff; 
+}
+
+#menucontainer
+{
+    margin-top:5px;
+    clear:both;
+    width:900px;
+}
+   
+  /* Left   
+----------------------------------------------------------*/
+#left
+  {
+      float:left;
+      width:220px; 
+      margin-top:10px;
+     }
+     
+#dangky
+{
+   
+    
+ }  
+#dichvu
+ { 
+    margin-top:10px;  
+ }
+#thanhvien_online
+{
+     margin-top:10px; 
+   }
+#thanhvien_noibat
+{
+  
+  margin-top:10px;  
+  }
+#Quangcao_left
+{
+   
+    margin-top:10px; 
+    margin-bottom:10px;
+   }
+
+  /* Center   
+----------------------------------------------------------*/
+     
+#center
+
+{
+  
+    
+ 
+   }
+   
+   
+  /* Right   
+----------------------------------------------------------*/   
+        
+#right
+
+{
+    width:220px;
+    float:right;
+     margin-top:10px;
+   }
+   
+#tim-thanh-vien
+ {
+    
+   
+    
+    }
+#Thanhvien_moi
+{
+     margin-top:10px; 
+   }
+#Thanhvien_upload_anh
+{
+     margin-top:10px; 
+    
+ }
+#Quangcao_right
+{
+   
+    margin-top:10px; 
+    margin-bottom:10px;
+   }
+
+
+
+   
+     /* Footer   
+----------------------------------------------------------*/   
+
+#footer
+{
+	width:900px;
+	height:270px;
+	background:url(../Images/bg_footer.gif) no-repeat top center;
+	clear:both;
+	
+	}
+
+#footer_left
+{
+	
+	width:260px;
+	padding-left:160px;
+	float:left;
+	padding-top:10px;
+	
+}
+
+#footer_doingutuvan
+{
+	
+	
+	
+}
+#footer_hotro 
+{
+	
+	
+	
+}
+
+
+
+
+#footer_right
+{
+	width:310px;
+	
+	float:left;
+	padding-top:20px;
+	
+}
+.table_login_footer
+{
+	width:280px;
+	line-height:35px;
+	color:#000;
+	font-weight:bold;
+	
+	
+	
+}
+.table_login_footer a
+{
+	color:#000;
+	font-weight:bold;
+	text-decoration:none;
+	
+}
+.table_login_footer a:hover
+{
+	
+	text-decoration:underline;
+	
+}
+#slideshow
+{
+    
+ }
+ .index_title
+ {
+ 	font-size:16px;
+ 	color:#3b5998;
+ 	font-weight:bold;
+ 	
+ 	
+ }
+ 
+#sukiennoibat
+{
+    
+    margin-top:10px;
+    width:90%;
+ }
+ .sukiennoibat_list
+ {
+ 	
+ 	font-family:Arial,Helvetica,sans-serif;
+ 	font-weight:bold;
+ 	color:#000;
+ 	font-size:13px;
+ 	
+ }
+ .goctuvan_list
+ 
+ {
+ 	
+ 	
+ 	
+ }
+ .sukiennoibat_list a
+ {
+ 	
+text-decoration:none;
+ color:#d40404;
+ 	
+ }
+ .sukiennoibat_list a:hover
+ {
+ 	
+text-decoration:underline;
+ 	
+ }
+  .sukiennoibat_list a:visited
+ {
+ 	
+ 	
+ color:#d40404;
+ 	
+ }
+ .sukiennoibat_hr
+ {
+ 	border:1px dotted #ccc;
+ 	margin-top:10px;
+ 	margin-bottom:10px;
+ 	padding-left:20px;
+ }
+  .goctuvan_hr
+ {
+ 	border:1px solid #dde1e2;
+ 	margin-top:8px;
+ 	margin-bottom:8px;
+ 	padding-left:20px;
+ }
+ 	 .style_hr
+ {
+ 	border:1px dotted #ccc;
+ 	margin-top:5px;
+ 	margin-bottom:5px;
+ 	padding-left:20px;
+ }
+  .goctuvan_list
+ 
+ {
+ 	
+ 	font-family:Arial,Helvetica,sans-serif;
+ 	color:#000;
+ 	font-size:12px;
+ 	
+ }	
+   .goctuvan_list a
+  {
+ 	
+ text-decoration:none;
+  color:#d40404;
+  font-weight:bold;
+ 	
+ }	
+   .goctuvan_list a:hover 
+ {
+text-decoration:underline;	
+ }	
+ 
+#doingutuvan
+{
+   
+ margin-top:10px;
+    
+ }
+ #dicvu_list
+ {
+ 	margin-top:-2px;
+ }
+ 
+ /* Root = Vertical, Secondary = Vertical */
+ul#navmenu,
+ul#navmenu li,
+ul#navmenu ul {
+  margin: 0;
+  border: 0 none;
+  padding: 0;
+  width: 217px; /*For KHTML*/
+  list-style: none;
+ 
+}
+
+ul#navmenu li {
+  display: block !important; /*For GOOD browsers*/
+  display: inline; /*For IE*/
+  position: relative;
+ 
+}
+
+/* Root Menu */
+ul#navmenu a {
+  border: 1px solid #FFF;
+  border-right-color: #dedede;
+  border-left-color:#dedede;
+  
+  border-bottom-color: #ccc;
+  border-bottom-style:dotted;
+  
+  padding: 0 6px;
+  display: block;
+  background:#fefefe;
+  color: #3b6b80;
+  font: bold 10px/22px Verdana, Arial, Helvetica, sans-serif;
+  text-decoration: none;
+  height: auto !important;
+  height: 100%; /*For IE*/
+}
+
+/* Root Menu Hover Persistence */
+ul#navmenu a:hover,
+ul#navmenu li:hover a,
+ul#navmenu li.iehover a {
+  background: #f3f3f3;
+  color: #3b6b80;
+}
+
+
+/* Thanh vien */
+
+
+.thanhvien_title
+{
+	background:url(../Images/thanhvien_home_title.png) no-repeat top left;
+	height:25px;
+	width:221px;
+	
+}
+.thanhvien_title h3
+{
+	
+	padding-top:5px;
+	padding-left:20px;
+	color:#d82158;
+	
+}
+#timthanhvien_title
+{
+	height:50px;
+}
+#tim-thanh-vien
+{
+	
+	height:268px;
+	width:226px;
+	
+	float:right;
+	position:relative;
+	top:245px;
+	right:10px;
+	
+}
+
+/* Quang cao */
+.quangcao_title
+{
+	background:url(../Images/quangcao_title.png) no-repeat top left;
+	height:24px;
+	width:221px;
+	
+}
+.quangcao_title h3
+{
+	
+	padding-top:5px;
+	padding-left:20px;
+	color:#fff;
+	
+}
+
+
+/* Su kien noi bat */
+.sukiennoibat-table
+{
+	 width:490px;
+	 text-align:center;
+	 background:url(../Images/sukien_bg.gif) repeat-x top left;
+	 background-color:#ffffff;
+	 margin-top:-3px;
+	
+	
+	
+	}
+
+.sukiennoibat_name
+{
+	
+	font-size:larger;
+	font-weight:bold;
+	color:#207aa0;
+	padding-left:10px;
+	padding-bottom:5px;
+	}
+	.sukiennoibat_name a
+	{
+		text-decoration:none;
+		
+	}
+	.sukiennoibat_name a:hover
+	{
+		text-decoration:underline;
+		
+	}
+	
+	/* xem tat ca*/
+	
+	.xemtatca a
+	{
+		text-decoration:none;
+		font-size:20px;
+	}
+	.xemtatca a:hover
+	{
+		text-decoration:underline;
+	}
+	
+	/* Doi ngu tu van */
+	
+
+	.doingutuvan_table 
+	{
+		
+		width:250px;
+		text-align:left;
+		
+		float:left;
+		
+	
+		
+	}
+	.doingutuvan_table  a
+	{
+		
+	
+		padding-left:40px;
+		
+	
+		
+	}
+	
+	
+	
+	.hotrotructuyen_table
+	
+	{
+		
+		font-weight:bold;
+		color:#000;
+	
+	}
+
+	
+		.doingutuvan_table a
+	{
+		text-decoration:none;
+		color:#000;
+		font-weight:bold;
+	
+	}
+	/*MENU Top*/
+	
+	#menutop{
+	position:relative;
+	display:block;
+	height:30px;
+	font-size:13px;
+	font-weight:bold;
+	background:#3b5998;
+	font-family:Arial,Verdana,Helvitica,sans-serif;
+	
+	
+	top: 0px;
+	left: 0px;
+}
+
+#menutop ul{
+	margin:0px;
+	padding:0;
+	list-style-type:none;
+	width:auto;
+	}
+
+#menutop ul li{
+	position:relative;
+float:left;
+	}
+
+#menutop ul li a{
+	display:block;
+	float:left;
+	color:#fff;
+	text-decoration:none;
+	padding:7px 20px 0 20px;
+	height:19px;
+	background:#3b5998;
+	}
+
+#menutop ul li a:hover,#menutop ul li a.current{
+	color:#fff;
+	background:#627aad;
+	height:23px;
+	
+	}
+#menutop ul ul {
+position: absolute;
+z-index: 200;
+top:30px;
+list-style:none;
+height:23px;
+
+
+}
+
+#menutop ul ul ul {
+ display: none;
+  position: absolute;
+  top: 0;
+  left: 160px;
+  height:23px;
+ 
+}
+
+#menutop ul ul,
+#menutop ul li:hover ul ul,
+#menutop ul ul li:hover ul ul
+{display: none;height:23px;}
+
+#menutop ul li:hover ul,
+#menutop ul ul li:hover ul,
+#menutop ul ul ul li:hover ul
+{display: block;height:23px;}
+
+/*MENU VIP*/
+
+	.menuvip{
+
+
+}
+
+.menuvip ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+    width: 700px;
+    float:left;
+
+}
+
+.menuvip li{
+display: inline;
+margin: 0;
+}
+
+.menuvip li a{
+float: left;
+display: block;
+text-decoration: none;
+margin: 0;
+padding: 6px 10px; /*padding inside each tab*/
+border-right: 1px solid white; /*right divider between tabs*/
+color: #fff;
+font-weight:bold;
+background: #44a4cf; /*background of tabs (default state)*/
+  border: 1px #7bc2db solid;
+      line-height: 1.35em;
+}
+
+.menuvip li a:visited{
+color: #fff;
+}
+
+.menuvip li a:hover, .menuvip li.selected a{
+background: white; 
+color:#44a4cf;
+}
+
+
+/* menu moi */
+#id_div1{
+position:relative;
+	display:block;
+	height:30px;
+	font-size:13px;
+	font-weight:bold;
+	background:#3b5998;
+	font-family:Arial,Verdana,Helvitica,sans-serif;
+	
+	
+	top: 0px;
+	left: 0px;
+}
+#id_div1 ul{
+margin:0px;
+	padding:0;
+	list-style-type:none;
+	width:auto;
+}
+#id_div1 ul li{
+position:relative;
+float:left;
+}
+#id_div1 li a{
+display:block;
+	float:left;
+	color:#fff;
+	text-decoration:none;
+	padding:7px 20px 0 20px;
+	height:19px;
+	background:#3b5998;
+}
+#id_div1 li ul{
+position:absolute;
+display:none;
+}
+#id_div1 li:hover ul{
+display:block;
+}
+
+#id_div1 ul li a:hover{
+color:#000000;
+}
+#id_div1 ul li a:active{
+font-weight:bold;
+}
+.a1 a:link{
+
+
+width:120px;
+}
+.a1 a:hover{
+width:120px;
+}
+.a1 a:visited{
+
+
+width:120px;
+}
+.a1 li{
+height:25px;
+
+}
+
+/*content center  */
+
+.content_menu
+{
+	
+width:90%;
+	 text-align:left;
+	
+	 margin-top:-3px;
+	 padding:10px;
+	 color:#000;
+	 font-size:13px;
+	 
+	
+}
+.content_menu a
+{
+	
+text-decoration:none;
+color:#3B5998;
+	 
+	
+}
+.content_menu a:hover
+{
+	
+text-decoration:underline;
+	
+}
+
+	.more_link a
+{
+	text-decoration:none;
+	color:#0C285F;
+	font-weight:bold;
+	
+	}
+.more_link a:hover
+{
+	text-decoration:underline;
+	
+	}
+
+.btn_dangky_home
+{
+	 background:url(../Images/btn_dangky_bg.gif) repeat-x top left;
+	 border:1px solid #2a487e;
+	 color:#fff;
+	 height:25px;
+	 font-weight:bold;
+	 
+	
+}
+.title_menu
+{
+	
+	font-size:16px;
+	color:#3B5998;
+	font-weight:bold;
+	padding:20px;
+}
+.name_album_title a
+{
+	
+	text-decoration:none;
+	font-size:13px;
+	font-weight:bold;
+	color:#3f73c5;
+	
+}
+.name_album_title a:hover
+{
+	
+	
+	text-decoration:underline;
+}
+
+.photoalbum_frame
+{
+	
+	background:url(../Images/frame_album.png) no-repeat top center;
+	
+	width:231px;
+	height:163px;
+	
+	
+	}
+	.photoalbum_frame p  
+{
+	
+	position:relative;
+	top:145px;
+	font-weight:bold;
+	color:#3B5998;
+	
+	
+	}
+	.link_chonalbum
+	{
+		padding-left:30px;
+		padding-top:50px;
+	}
+	.link_chonalbum a
+	{
+		position:relative;
+		top:-6px;
+		font-weight:bold;
+		color:#3B5998;
+		text-decoration:none;
+	}
+	.link_chonalbum a:hover
+	{
+	text-decoration:underline;
+	}
+
+	
+.register_page
+{
+	
+	width:90%;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:12px;
+	color:#000;
+	
+}
+.table_register_member
+{
+	width:100%;
+	color:#000;
+	
+	font-weight:bold;
+	font-family:"lucida grande",tahoma,verdana,arial,sans-serif;
+	font-size:11px;
+	font-style:normal;
+	line-height:45px;
+	padding-top:10px;
+	
+	
+}
+.table_register_member span
+{
+	
+	color:Red;
+}
+.text_fill_register
+{
+	width:300px;
+	border:1px solid #B4C6DC;
+	margin-left:10px;
+}
+.text_fill_register2
+{
+	width:170px;
+	border:1px solid #B4C6DC;
+	margin-left:10px;
+	
+	
+}
+
+.text_fill_register3
+{
+
+	border:1px solid #B4C6DC;
+	margin-left:10px;
+	
+	
+}
+.name_goc_tuvan a
+{
+	color:#475D7F;
+	font-weight:bold;
+	text-decoration:underline;
+	
+}
+.name_goc_tuvan a:visited 
+{
+	color:#475D7F;
+	
+}
+.name_goc_tuvan a:hover
+{
+	color:#1D314F;
+}
+.input-validation-error
+{
+    border: 1px solid #ff0000;
+    background-color: #ffeeee;
+}
+.chitietlink 
+{
+	color:Black;
+	
+	
+}
+.chitietlink a:visited
+{
+	color:#ef0b0b;
+	
+	
+}
+.namecamnhan a
+{
+	color:#3B5998;
+	font-weight:bold;
+}
+.namecamnhan a:visited
+{
+	color:#3B5998;
+}
+.pager{clear:both;font-family:"Bitstream Vera Sans",Verdana,Helvetica;font-size:10px;}
+.pager a,.pager strong.pager-current{padding:0.5em;color:#333333;font-weight:bold;text-decoration:none;}
+.pager{clear:both;padding:10px 0px 3px;}
+.pager div{padding:0em;display:inline;}
+.pager strong,.pager a{
+padding:2px 5px;margin:0px 0.25em 0px 0.25em;background:#dfedf7;border:1px solid #90c2e1;-moz-border-radius:2px;
+}
+.pager a:hover{text-decoration:underline;background:#eef7fc;}
+.pager a:visited{color:#333333}
+.pagerD strong{background:#0174bb;color:#fff;}
