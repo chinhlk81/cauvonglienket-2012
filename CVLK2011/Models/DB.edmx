@@ -152,6 +152,8 @@
           <Property Name="Status" Type="nvarchar" MaxLength="50" />
           <Property Name="EventParentName" Type="nvarchar" MaxLength="100" />
           <Property Name="EventParentDesc" Type="ntext" />
+          <Property Name="EventParentTitle" Type="nvarchar" MaxLength="500" />
+          <Property Name="EventParentImage" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="Events">
           <Key>
@@ -768,7 +770,6 @@
           <EntitySet Name="Comments" EntityType="DB.Comment" />
           <EntitySet Name="ConfigValues" EntityType="DB.ConfigValue" />
           <EntitySet Name="Consultants" EntityType="DB.Consultant" />
-          <EntitySet Name="EventParents" EntityType="DB.EventParent" />
           <EntitySet Name="Events" EntityType="DB.Event" />
           <EntitySet Name="Friends" EntityType="DB.Friend" />
           <EntitySet Name="Messages" EntityType="DB.Message" />
@@ -797,10 +798,6 @@
           <AssociationSet Name="FK_Comment_Users" Association="DB.FK_Comment_Users">
             <End Role="User" EntitySet="Users" />
             <End Role="Comment" EntitySet="Comments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Events_EventParents" Association="DB.FK_Events_EventParents">
-            <End Role="EventParent" EntitySet="EventParents" />
-            <End Role="Event" EntitySet="Events" />
           </AssociationSet>
           <AssociationSet Name="FK_Friends_Users" Association="DB.FK_Friends_Users">
             <End Role="User" EntitySet="Users" />
@@ -1151,10 +1148,6 @@
             <Parameter Name="UserReceiptID" Mode="In" Type="Int32" />
             <Parameter Name="MessageTitle" Mode="In" Type="String" />
           </FunctionImport>
-          <AssociationSet Name="FK_Users_EventParents" Association="DB.FK_Users_EventParents">
-            <End Role="EventParent" EntitySet="EventParents" />
-            <End Role="User" EntitySet="Users" />
-          </AssociationSet>
           <FunctionImport Name="DeleteCommentRelation">
           <Parameter Name="commentID" Mode="In" Type="Int32" />
           </FunctionImport>
@@ -1247,6 +1240,7 @@
           <EntitySet Name="Provinces" EntityType="DB.Province" />
           <FunctionImport Name="GetAllUsers" ReturnType="Collection(DB.GetAllUsers_Result)" />
           <EntitySet Name="Photos" EntityType="DB.Photo" />
+          <EntitySet Name="EventParents" EntityType="DB.EventParent" />
           </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -1339,17 +1333,6 @@
           <Property Type="String" Name="ConsultantDesc" MaxLength="500" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="ConsultantFrontPage" Nullable="false" />
         </EntityType>
-        <EntityType Name="EventParent">
-          <Key>
-            <PropertyRef Name="EventParentID" />
-          </Key>
-          <Property Type="Int32" Name="EventParentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EventParentName" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Type="String" Name="EventParentDesc" MaxLength="500" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Events" Relationship="DB.FK_Events_EventParents" FromRole="EventParent" ToRole="Event" />
-          <NavigationProperty Name="Users" Relationship="DB.FK_Users_EventParents" FromRole="EventParent" ToRole="User" />
-        </EntityType>
         <EntityType Name="Event">
           <Key>
             <PropertyRef Name="EventID" />
@@ -1369,7 +1352,6 @@
           <Property Type="String" Name="EventImages" MaxLength="500" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Album" Relationship="DB.FK_Events_Album" FromRole="Event" ToRole="Album" />
           <NavigationProperty Name="Comments" Relationship="DB.FK_Comment_Events" FromRole="Event" ToRole="Comment" />
-          <NavigationProperty Name="EventParent" Relationship="DB.FK_Events_EventParents" FromRole="Event" ToRole="EventParent" />
           <Property Type="Boolean" Name="IsTypical" Nullable="false" />
           <Property Type="String" Name="EventMusic" MaxLength="500" FixedLength="false" Unicode="true" />
         </EntityType>
@@ -1454,7 +1436,6 @@
           <Property Type="String" Name="UserHeight" />
           <Property Type="String" Name="UserWeight" />
           <Property Type="Int32" Name="UserEventParentID" Nullable="false" />
-          <NavigationProperty Name="EventParent" Relationship="DB.FK_Users_EventParents" FromRole="User" ToRole="EventParent" />
           <Property Type="String" Name="UserType" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Type="Double" Name="VIPPeriod" />
           <Property Type="Double" Name="VIPRemain" />
@@ -1541,18 +1522,6 @@
             </Principal>
             <Dependent Role="Comment">
               <PropertyRef Name="UserID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Events_EventParents">
-          <End Type="DB.EventParent" Role="EventParent" Multiplicity="0..1" />
-          <End Type="DB.Event" Role="Event" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventParent">
-              <PropertyRef Name="EventParentID" />
-            </Principal>
-            <Dependent Role="Event">
-              <PropertyRef Name="FK_EventParentID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1663,20 +1632,6 @@
           <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
           <Property Type="String" Name="BlogTitle" Nullable="false" MaxLength="200" />
           <Property Type="String" Name="EventName" Nullable="true" MaxLength="250" />
-        </ComplexType>
-        <ComplexType Name="GetAllEventParents_Result">
-          <Property Type="Int32" Name="EventParentID" Nullable="false" />
-          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="EventParentDesc" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
-        </ComplexType>
-        <ComplexType Name="GetEventParentByID_Result">
-          <Property Type="Int32" Name="EventParentID" Nullable="false" />
-          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="50" />
-          <Property Type="String" Name="EventParentDesc" Nullable="true" MaxLength="500" />
-          <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
         </ComplexType>
         <ComplexType Name="GetAllConsultings_Result">
           <Property Type="Int32" Name="ConsultingID" Nullable="false" />
@@ -1920,18 +1875,6 @@
           <Property Type="String" Name="UserGender" Nullable="true" MaxLength="50" />
           <Property Type="String" Name="UserStatus" Nullable="true" MaxLength="50" />
         </ComplexType>
-        <Association Name="FK_Users_EventParents">
-          <End Type="DB.EventParent" Role="EventParent" Multiplicity="1" />
-          <End Type="DB.User" Role="User" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EventParent">
-              <PropertyRef Name="EventParentID" />
-            </Principal>
-            <Dependent Role="User">
-              <PropertyRef Name="UserEventParentID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <ComplexType Name="GetAllDatePostFromBlogs_Result">
           <Property Type="DateTime" Name="DatePost" Nullable="false" Precision="23" />
         </ComplexType>
@@ -2187,6 +2130,35 @@
           <Property Type="String" Name="PhotoOriginal" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Type="Boolean" Name="IsTypical" Nullable="false" />
         </EntityType>
+        <ComplexType Name="GetEventParentByID_Result">
+          <Property Type="Int32" Name="EventParentID" Nullable="false" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EventParentDesc" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="EventParentTitle" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="EventParentImage" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="EventParent">
+          <Key>
+            <PropertyRef Name="EventParentID" />
+          </Key>
+          <Property Type="Int32" Name="EventParentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventParentName" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventParentDesc" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventParentTitle" MaxLength="500" FixedLength="false" Unicode="true" />
+          <Property Type="String" Name="EventParentImage" MaxLength="250" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="GetAllEventParents_Result">
+          <Property Type="Int32" Name="EventParentID" Nullable="false" />
+          <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="100" />
+          <Property Type="String" Name="EventParentDesc" Nullable="true" MaxLength="Max" />
+          <Property Type="String" Name="EventParentTitle" Nullable="true" MaxLength="500" />
+          <Property Type="String" Name="EventParentImage" Nullable="true" MaxLength="250" />
+          <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2280,16 +2252,6 @@
                 <ScalarProperty Name="ConsultantName" ColumnName="ConsultantName" />
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="ConsultantID" ColumnName="ConsultantID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EventParents">
-            <EntityTypeMapping TypeName="DB.EventParent">
-              <MappingFragment StoreEntitySet="EventParents">
-                <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
-                <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
-                <ScalarProperty Name="Status" ColumnName="Status" />
-                <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -2525,6 +2487,8 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
                 <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+                <ScalarProperty Name="EventParentTitle" ColumnName="EventParentTitle" />
+                <ScalarProperty Name="EventParentImage" ColumnName="EventParentImage" />
                 <ScalarProperty Name="StatusText" ColumnName="StatusText" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -2536,6 +2500,8 @@
                 <ScalarProperty Name="Status" ColumnName="Status" />
                 <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
                 <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+                <ScalarProperty Name="EventParentTitle" ColumnName="EventParentTitle" />
+                <ScalarProperty Name="EventParentImage" ColumnName="EventParentImage" />
                 <ScalarProperty Name="StatusText" ColumnName="StatusText" />
               </ComplexTypeMapping>
             </ResultMapping>
@@ -3747,6 +3713,18 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="EventParents">
+            <EntityTypeMapping TypeName="DB.EventParent">
+              <MappingFragment StoreEntitySet="EventParents">
+                <ScalarProperty Name="EventParentImage" ColumnName="EventParentImage" />
+                <ScalarProperty Name="EventParentTitle" ColumnName="EventParentTitle" />
+                <ScalarProperty Name="EventParentDesc" ColumnName="EventParentDesc" />
+                <ScalarProperty Name="EventParentName" ColumnName="EventParentName" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="EventParentID" ColumnName="EventParentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3767,14 +3745,13 @@
     </edmx:Options>
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram Name="DB" ZoomLevel="54" >
+      <Diagram Name="DB" ZoomLevel="100" >
         <EntityTypeShape EntityType="DB.Admin" Width="1.5" PointX="7.75" PointY="3.75" Height="1.7879850260416674" />
         <EntityTypeShape EntityType="DB.Album" Width="1.5" PointX="3" PointY="2.5" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="DB.Blog" Width="1.5" PointX="3" PointY="5.75" Height="2.9417936197916674" />
         <EntityTypeShape EntityType="DB.Comment" Width="1.5" PointX="7.5" PointY="6.875" Height="3.1340950520833317" />
         <EntityTypeShape EntityType="DB.ConfigValue" Width="1.5" PointX="9.75" PointY="0.625" Height="2.3648893229166674" />
         <EntityTypeShape EntityType="DB.Consultant" Width="1.5" PointX="9.75" PointY="4.75" Height="2.7494921875000102" />
-        <EntityTypeShape EntityType="DB.EventParent" Width="1.5" PointX="3" PointY="19.75" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="DB.Event" Width="1.5" PointX="5.25" PointY="1.75" Height="4.0956022135416674" />
         <EntityTypeShape EntityType="DB.Friend" Width="1.5" PointX="3" PointY="9.5" Height="1.9802864583333246" />
         <EntityTypeShape EntityType="DB.Message" Width="1.5" PointX="3" PointY="12.25" Height="3.3263964843749978" />
@@ -3795,10 +3772,8 @@
         </AssociationConnector>
         <AssociationConnector Association="DB.FK_Comment_Blog" >
           <ConnectorPoint PointX="4.5" PointY="7.7833968098958337" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="7.7833968098958328" />
-          <ConnectorPoint PointX="5.364583333333333" PointY="7.7833968098958337" />
-          <ConnectorPoint PointX="5.9635441666666669" PointY="7.7833968098958328" />
-          <ConnectorPoint PointX="6.1302108333333329" PointY="7.7833968098958337" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="7.7833968098958328" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="7.7833968098958337" />
           <ConnectorPoint PointX="7.5" PointY="7.7833968098958337" />
         </AssociationConnector>
         <AssociationConnector Association="DB.FK_Comment_Events" >
@@ -3808,16 +3783,9 @@
         </AssociationConnector>
         <AssociationConnector Association="DB.FK_Comment_Users" >
           <ConnectorPoint PointX="2.25" PointY="9.0958968098958337" />
-          <ConnectorPoint PointX="5.197916666666667" PointY="9.0958968098958337" />
-          <ConnectorPoint PointX="5.364583333333333" PointY="9.0958968098958337" />
-          <ConnectorPoint PointX="5.9635441666666669" PointY="9.0958968098958337" />
-          <ConnectorPoint PointX="6.1302108333333329" PointY="9.0958968098958337" />
+          <ConnectorPoint PointX="5.916666666666667" PointY="9.0958968098958337" />
+          <ConnectorPoint PointX="6.083333333333333" PointY="9.0958968098958337" />
           <ConnectorPoint PointX="7.5" PointY="9.0958968098958337" />
-        </AssociationConnector>
-        <AssociationConnector Association="DB.FK_Events_EventParents" >
-          <ConnectorPoint PointX="4.5" PointY="20.836293945312498" />
-          <ConnectorPoint PointX="5.28125" PointY="20.836293945312498" />
-          <ConnectorPoint PointX="5.28125" PointY="6.0379036458333326" />
         </AssociationConnector>
         <AssociationConnector Association="DB.FK_Friends_Users" >
           <ConnectorPoint PointX="2.25" PointY="10.490143229166662" />
@@ -3847,15 +3815,11 @@
         </AssociationConnector>
         <EntityTypeShape EntityType="DB.Consulting" Width="1.5" PointX="10.375" PointY="8.75" Height="2.1725878906250031" />
         <EntityTypeShape EntityType="DB.OlineSupport" Width="1.5" PointX="8.25" PointY="12.75" Height="4.6725065104166674" />
-        <AssociationConnector Association="DB.FK_Users_EventParents" >
-          <ConnectorPoint PointX="3" PointY="20.836293945312498" />
-          <ConnectorPoint PointX="1.9062525" PointY="20.836293945312498" />
-          <ConnectorPoint PointX="1.9062525" PointY="15.816549479166666" />
-        </AssociationConnector>
         <EntityTypeShape EntityType="DB.Ad" Width="1.5" PointX="12.375" PointY="7.75" Height="3.3263964843750031" />
         <EntityTypeShape EntityType="DB.Career" Width="1.5" PointX="6.125" PointY="16.125" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="DB.Province" Width="1.5" PointX="6.125" PointY="14.25" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="DB.Photo" Width="1.5" PointX="12.375" PointY="0.75" Height="2.5571907552083388" />
+        <EntityTypeShape EntityType="DB.EventParent" Width="1.5" PointX="12.375" PointY="4.75" Height="2.1725878906250031" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
