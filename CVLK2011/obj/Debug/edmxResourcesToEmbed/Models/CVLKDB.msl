@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CVLKDBModelStoreContainer" CdmEntityContainer="CVLKDBEntities">
+    <EntitySetMapping Name="Ads">
+      <EntityTypeMapping TypeName="CVLKDBModel.Ad">
+        <MappingFragment StoreEntitySet="Ad">
+          <ScalarProperty Name="AdID" ColumnName="AdID" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+          <ScalarProperty Name="Link" ColumnName="Link" />
+          <ScalarProperty Name="IsVisible" ColumnName="IsVisible" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Admins">
+      <EntityTypeMapping TypeName="CVLKDBModel.Admin">
+        <MappingFragment StoreEntitySet="Admin">
+          <ScalarProperty Name="AdminID" ColumnName="AdminID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Albums">
+      <EntityTypeMapping TypeName="CVLKDBModel.Album">
+        <MappingFragment StoreEntitySet="Album">
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="AlbumName" ColumnName="AlbumName" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Blogs">
+      <EntityTypeMapping TypeName="CVLKDBModel.Blog">
+        <MappingFragment StoreEntitySet="Blog">
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="BlogTitle" ColumnName="BlogTitle" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="BlogContent" ColumnName="BlogContent" />
+          <ScalarProperty Name="ImageUpload" ColumnName="ImageUpload" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comments">
+      <EntityTypeMapping TypeName="CVLKDBModel.Comment">
+        <MappingFragment StoreEntitySet="Comment">
+          <ScalarProperty Name="CommentID" ColumnName="CommentID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="BlogID" ColumnName="BlogID" />
+          <ScalarProperty Name="CommentContent" ColumnName="CommentContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Events">
+      <EntityTypeMapping TypeName="CVLKDBModel.Event">
+        <MappingFragment StoreEntitySet="Event">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="EventTitle" ColumnName="EventTitle" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="EventContent" ColumnName="EventContent" />
+          <ScalarProperty Name="Datepost" ColumnName="Datepost" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Friends">
+      <EntityTypeMapping TypeName="CVLKDBModel.Friend">
+        <MappingFragment StoreEntitySet="Friends">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FriendID" ColumnName="FriendID" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Photos">
+      <EntityTypeMapping TypeName="CVLKDBModel.Photo">
+        <MappingFragment StoreEntitySet="Photo">
+          <ScalarProperty Name="PhotoID" ColumnName="PhotoID" />
+          <ScalarProperty Name="AlbumID" ColumnName="AlbumID" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="DateUpload" ColumnName="DateUpload" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CVLKDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="CVLKDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserImage" ColumnName="UserImage" />
+          <ScalarProperty Name="CID" ColumnName="CID" />
+          <ScalarProperty Name="Birthday" ColumnName="Birthday" />
+          <ScalarProperty Name="Sex" ColumnName="Sex" />
+          <ScalarProperty Name="TrinhDoVanHoa" ColumnName="TrinhDoVanHoa" />
+          <ScalarProperty Name="TonGiao" ColumnName="TonGiao" />
+          <ScalarProperty Name="TinhTrangHonNhan" ColumnName="TinhTrangHonNhan" />
+          <ScalarProperty Name="NgheNghiep" ColumnName="NgheNghiep" />
+          <ScalarProperty Name="ViTriCongViec" ColumnName="ViTriCongViec" />
+          <ScalarProperty Name="MucLuong" ColumnName="MucLuong" />
+          <ScalarProperty Name="ThoiGianLamViec" ColumnName="ThoiGianLamViec" />
+          <ScalarProperty Name="MauSacYeuThich" ColumnName="MauSacYeuThich" />
+          <ScalarProperty Name="LoaiSachThichDoc" ColumnName="LoaiSachThichDoc" />
+          <ScalarProperty Name="ThuCungYeuThich" ColumnName="ThuCungYeuThich" />
+          <ScalarProperty Name="MauNguoiBanThich" ColumnName="MauNguoiBanThich" />
+          <ScalarProperty Name="MauNguoiBanGhet" ColumnName="MauNguoiBanGhet" />
+          <ScalarProperty Name="SoThichRieng" ColumnName="SoThichRieng" />
+          <ScalarProperty Name="DoiTuongMuonTim" ColumnName="DoiTuongMuonTim" />
+          <ScalarProperty Name="YeuCauRieng" ColumnName="YeuCauRieng" />
+          <ScalarProperty Name="PasswordRecovery" ColumnName="PasswordRecovery" />
+          <ScalarProperty Name="IsVip" ColumnName="IsVip" />
+          <ScalarProperty Name="DatePayment" ColumnName="DatePayment" />
+          <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+          <ScalarProperty Name="VideoUploadPath" ColumnName="VideoUploadPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VIPVideos">
+      <EntityTypeMapping TypeName="CVLKDBModel.VIPVideo">
+        <MappingFragment StoreEntitySet="VIPVideo">
+          <ScalarProperty Name="VipVideoID" ColumnName="VipVideoID" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="VideoPartnerID" ColumnName="VideoPartnerID" />
+          <ScalarProperty Name="DateCreate" ColumnName="DateCreate" />
+          <ScalarProperty Name="Isdeleted" ColumnName="Isdeleted" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

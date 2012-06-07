@@ -1,0 +1,1430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="DB" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+  <EntityContainer Name="DBContainer" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="GetAllEvents" EntitySet="Events" ReturnType="Collection(DB.Event)" />
+    <EntitySet Name="Admins" EntityType="DB.Admin" />
+    <EntitySet Name="Albums" EntityType="DB.Album" />
+    <EntitySet Name="Blogs" EntityType="DB.Blog" />
+    <EntitySet Name="Comments" EntityType="DB.Comment" />
+    <EntitySet Name="ConfigValues" EntityType="DB.ConfigValue" />
+    <EntitySet Name="Consultants" EntityType="DB.Consultant" />
+    <EntitySet Name="EventParents" EntityType="DB.EventParent" />
+    <EntitySet Name="Events" EntityType="DB.Event" />
+    <EntitySet Name="Friends" EntityType="DB.Friend" />
+    <EntitySet Name="Messages" EntityType="DB.Message" />
+    <EntitySet Name="Users" EntityType="DB.User" />
+    <EntitySet Name="VIPVideos" EntityType="DB.VIPVideo" />
+    <AssociationSet Name="FK_Album_Users" Association="DB.FK_Album_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Album" EntitySet="Albums" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Album" Association="DB.FK_Events_Album">
+      <End Role="Album" EntitySet="Albums" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blog_Users" Association="DB.FK_Blog_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Blog" EntitySet="Blogs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Blog" Association="DB.FK_Comment_Blog">
+      <End Role="Blog" EntitySet="Blogs" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Events" Association="DB.FK_Comment_Events">
+      <End Role="Event" EntitySet="Events" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Users" Association="DB.FK_Comment_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comments" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_EventParents" Association="DB.FK_Events_EventParents">
+      <End Role="EventParent" EntitySet="EventParents" />
+      <End Role="Event" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Friends_Users" Association="DB.FK_Friends_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Friend" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_Users" Association="DB.FK_Messages_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_Users1" Association="DB.FK_Messages_Users1">
+      <End Role="User" EntitySet="Users" />
+      <End Role="Message" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VIPVideo_Users" Association="DB.FK_VIPVideo_Users">
+      <End Role="User" EntitySet="Users" />
+      <End Role="VIPVideo" EntitySet="VIPVideos" />
+    </AssociationSet>
+    <FunctionImport Name="GetAllBlogs" ReturnType="Collection(DB.GetAllBlogs_Result)" />
+    <FunctionImport Name="GetAllConsultants" ReturnType="Collection(DB.GetAllConsultants_Result)" />
+    <FunctionImport Name="GetConsultantByID" ReturnType="Collection(DB.GetConsultantByID_Result)">
+      <Parameter Name="consultantID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteConsultant">
+      <Parameter Name="consultantID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetBlogByID" ReturnType="Collection(DB.GetBlogByID_Result)">
+      <Parameter Name="blogID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BlogApprove">
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="blogID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="BlogUnApprove">
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="blogID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteBlog">
+      <Parameter Name="blogID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllComments" ReturnType="Collection(DB.GetAllComments_Result)" />
+    <FunctionImport Name="GetCommentByID" ReturnType="Collection(DB.GetCommentByID_Result)">
+      <Parameter Name="commentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteComment">
+      <Parameter Name="CommentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateCommentStatus">
+      <Parameter Name="Status" Mode="In" Type="String" />
+      <Parameter Name="commentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMessageStatus">
+      <Parameter Name="messageID" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteMessage">
+      <Parameter Name="messageID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePhoto">
+      <Parameter Name="PhotoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetStatusByConsultantsGroup" EntitySet="ConfigValues" ReturnType="Collection(DB.ConfigValue)" />
+    <FunctionImport Name="GetAllMessages" ReturnType="Collection(DB.GetAllMessages_Result)" />
+    <FunctionImport Name="GetMessageByID" ReturnType="Collection(DB.GetMessageByID_Result)">
+      <Parameter Name="MessageID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllEventParents" ReturnType="Collection(DB.GetAllEventParents_Result)" />
+    <FunctionImport Name="GetEventParentByID" ReturnType="Collection(DB.GetEventParentByID_Result)">
+      <Parameter Name="eventParentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetConfigValuesByEventParentsGroup" EntitySet="ConfigValues" ReturnType="Collection(DB.ConfigValue)" />
+    <FunctionImport Name="GetAllMenuConfig" EntitySet="MenuConfigs" ReturnType="Collection(DB.MenuConfig)" />
+    <FunctionImport Name="GetMenuConfigByID" EntitySet="MenuConfigs" ReturnType="Collection(DB.MenuConfig)">
+      <Parameter Name="MenuConfigID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllPhotos" ReturnType="Collection(DB.GetAllPhotos_Result)" />
+    <FunctionImport Name="GetPhotoByID" ReturnType="Collection(DB.GetPhotoByID_Result)">
+      <Parameter Name="PhotoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllConsultings" ReturnType="Collection(DB.GetAllConsultings_Result)" />
+    <FunctionImport Name="DeleteConsulting">
+      <Parameter Name="ConsultingID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetConsultingByID" ReturnType="Collection(DB.GetConsultingByID_Result)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetNIdEventParents" ReturnType="Collection(DB.GetNIdEventParents_Result)" />
+    <FunctionImport Name="GetEventByID" EntitySet="Events" ReturnType="Collection(DB.Event)">
+      <Parameter Name="eventId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetConsultingStatus" ReturnType="Collection(DB.GetConsultingStatus_Result)" />
+    <FunctionImport Name="DeleteEvent">
+      <Parameter Name="eventId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetDefaultAlbumID" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetAllMessageInboxByUserID" ReturnType="Collection(DB.GetAllMessageInboxByUserID_Result)">
+      <Parameter Name="UserReceiptID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllMessageOutboxByUserID" ReturnType="Collection(DB.GetAllMessageInboxByUserID_Result)">
+      <Parameter Name="UserSendID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAdminByName" EntitySet="Admins" ReturnType="Collection(DB.Admin)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="MenuConfigs" EntityType="DB.MenuConfig" />
+    <FunctionImport Name="GetAllMessagesUnRead" ReturnType="Collection(DB.GetAllMessageInboxByUserID_Result)">
+      <Parameter Name="UserReceiptID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllMessageIsRead" ReturnType="Collection(DB.GetAllMessageInboxByUserID_Result)">
+      <Parameter Name="UserReceiptID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllMessagesIsReply" ReturnType="Collection(DB.GetAllMessageInboxByUserID_Result)">
+      <Parameter Name="UserReceiptID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllBlogByUserID" ReturnType="Collection(DB.GetAllBlogs_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserIDByName" ReturnType="Collection(Int32)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllFriendsByUser" ReturnType="Collection(DB.GetAllFriendsByUser_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllBlogOfFriends" ReturnType="Collection(DB.GetAllBlogOfFriends_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAlbumByID" EntitySet="Albums" ReturnType="Collection(DB.Album)">
+      <Parameter Name="idAlbum" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetMaxIDAlbum" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetAlbumInfo" ReturnType="Collection(DB.GetAlbumInfo_Result)" />
+    <FunctionImport Name="GetAlbumStatus" ReturnType="Collection(DB.GetAlbumStatus_Result)" />
+    <FunctionImport Name="GetAlbumInfoById" ReturnType="Collection(DB.GetAlbumInfoById_Result)">
+      <Parameter Name="idAlbum" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteAlbum">
+      <Parameter Name="albumId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeletePhotoByAlbum">
+      <Parameter Name="albumId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetPhotoByAlbum" EntitySet="Photos" ReturnType="Collection(DB.Photo)">
+      <Parameter Name="idAlbum" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserName" ReturnType="Collection(DB.GetUserName_Result)" />
+    <FunctionImport Name="GetUserByName" EntitySet="Users" ReturnType="Collection(DB.User)">
+      <Parameter Name="userName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAlbumAndPhoto" ReturnType="Collection(DB.GetAlbumAndPhoto_Result)" />
+    <FunctionImport Name="GetAllCommentsByBlog" EntitySet="Comments" ReturnType="Collection(DB.Comment)">
+      <Parameter Name="BlogID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetDefaultEvent" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetDefaultUser" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetAllCommentsEvent" ReturnType="Collection(DB.GetAllCommentsEvent_Result)" />
+    <FunctionImport Name="GetAllCommentByEventID" EntitySet="Comments" ReturnType="Collection(DB.Comment)">
+      <Parameter Name="EventID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetDefaultBlog" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetTopEventTypical" EntitySet="Events" ReturnType="Collection(DB.Event)" />
+    <FunctionImport Name="GetTopCommentTypicalEvent" ReturnType="Collection(DB.GetAllCommentsEvent_Result)" />
+    <FunctionImport Name="UserSearch" ReturnType="Collection(DB.UserSearch_Result)">
+      <Parameter Name="Gender" Mode="In" Type="String" />
+      <Parameter Name="BDFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="BDTo" Mode="In" Type="DateTime" />
+      <Parameter Name="UserAddCity" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetTopFiveNewEvent" ReturnType="Collection(DB.GetTopFiveNewEvent_Result)" />
+    <FunctionImport Name="GetAllAlbumByUser" EntitySet="Albums" ReturnType="Collection(DB.Album)">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetTopFiveBlogByUserID" ReturnType="Collection(DB.GetTopFiveBlogByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetTopFiveAlbumAndPhotoByUserID" ReturnType="Collection(DB.GetTopFiveAlbumAndPhotoByUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ActiveUser">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteUser">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CancelUserVIP">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UpGradeUserVIP">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeActivateUser">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ApprovePhoto">
+      <Parameter Name="photoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UnApprovePhoto">
+      <Parameter Name="photoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUsers" EntitySet="Users" ReturnType="Collection(DB.User)" />
+    <FunctionImport Name="GetPhotoByUser" EntitySet="Photos" ReturnType="Collection(DB.Photo)">
+      <Parameter Name="idUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserInfoByName" EntitySet="Users" ReturnType="Collection(DB.User)">
+      <Parameter Name="username" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAlbumShareByUser" EntitySet="Albums" ReturnType="Collection(DB.Album)">
+      <Parameter Name="idUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCommentsByWall" ReturnType="Collection(DB.GetAllCommentsByWall_Result)">
+      <Parameter Name="UserWall" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCommentRelationByCommentID" ReturnType="Collection(DB.GetAllCommentRelationByCommentID_Result)">
+      <Parameter Name="CommentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <AssociationSet Name="FK_Comment_Comment" Association="DB.FK_Comment_Comment">
+      <End Role="Comment" EntitySet="Comments" />
+      <End Role="Comment1" EntitySet="Comments" />
+    </AssociationSet>
+    <FunctionImport Name="GetDefaultComment" ReturnType="Collection(Int32)" />
+    <FunctionImport Name="GetTopTreeConsulting" ReturnType="Collection(DB.GetAllConsultings_Result)" />
+    <EntitySet Name="Consultings" EntityType="DB.Consulting" />
+    <FunctionImport Name="GetAllCommentsOrderByDatePost" ReturnType="Collection(DB.GetAllComments_Result)" />
+    <FunctionImport Name="GetMemberAlbum" ReturnType="Collection(DB.GetMemberAlbum_Result)">
+      <Parameter Name="idUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllUsersCanMakeFriendsByCurrentUserID" ReturnType="Collection(DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchAllFriendsOfCurrentUserIdByFullName" ReturnType="Collection(DB.GetAllFriendsOfCurrentUserByID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FriendFullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllFriendsOfCurrentUserByID" ReturnType="Collection(DB.GetAllFriendsOfCurrentUserByID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <EntitySet Name="OlineSupports" EntityType="DB.OlineSupport" />
+    <FunctionImport Name="GetUserByID" ReturnType="Collection(DB.GetUserByID_Result)">
+      <Parameter Name="userID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="CheckUserEmail" ReturnType="Collection(String)">
+      <Parameter Name="UserEmail" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="OSDelete">
+      <Parameter Name="OSID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OSActive">
+      <Parameter Name="OSID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="OSDeActivate">
+      <Parameter Name="OSID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetEmailConfigSupport" ReturnType="Collection(DB.GetEmailConfigSupport_Result)" />
+    <FunctionImport Name="UpdateMessageToRead">
+      <Parameter Name="msgID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteFriendFromFriendsList">
+      <Parameter Name="iUserID" Mode="In" Type="Int32" />
+      <Parameter Name="iFriendID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllUsersIWantToMakeFriends" ReturnType="Collection(DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllUsersWantToMakeFriendsWithMe" ReturnType="Collection(DB.GetAllUsersWantToMakeFriendsWithMe_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SearchAllNewFriendsByCurrentUserIdAndFullName" ReturnType="Collection(DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="FriendFullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateStatusToFriends">
+      <Parameter Name="iUserID" Mode="In" Type="Int32" />
+      <Parameter Name="iFriendID" Mode="In" Type="Int32" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_AdvanceSearchByConsultants" ReturnType="Collection(DB.GetAllConsultants_Result)">
+      <Parameter Name="ConsultantName" Mode="In" Type="String" />
+      <Parameter Name="ConsultantEmail" Mode="In" Type="String" />
+      <Parameter Name="ConsultantPhone" Mode="In" Type="String" />
+      <Parameter Name="ConsultantYahooID" Mode="In" Type="String" />
+      <Parameter Name="ConsultantSkypeID" Mode="In" Type="String" />
+      <Parameter Name="ConsultantDesc" Mode="In" Type="String" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_AdvanceSearchByUsers" ReturnType="Collection(DB.GetAllUsers_Result)">
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="UserFullName" Mode="In" Type="String" />
+      <Parameter Name="UserGender" Mode="In" Type="String" />
+      <Parameter Name="UserPhone" Mode="In" Type="String" />
+      <Parameter Name="UserEmail" Mode="In" Type="String" />
+      <Parameter Name="UserAddCity" Mode="In" Type="String" />
+      <Parameter Name="AgeFrom" Mode="In" Type="Int32" />
+      <Parameter Name="AgeTo" Mode="In" Type="Int32" />
+      <Parameter Name="UserHeight" Mode="In" Type="String" />
+      <Parameter Name="UserWeight" Mode="In" Type="String" />
+      <Parameter Name="UserFavColor" Mode="In" Type="String" />
+      <Parameter Name="UserFavFoods" Mode="In" Type="String" />
+      <Parameter Name="UserReadingBook" Mode="In" Type="String" />
+      <Parameter Name="UserFavPet" Mode="In" Type="String" />
+      <Parameter Name="UserPeopleLike" Mode="In" Type="String" />
+      <Parameter Name="UserPeopleDislike" Mode="In" Type="String" />
+      <Parameter Name="UserHobby" Mode="In" Type="String" />
+      <Parameter Name="UserCareer" Mode="In" Type="String" />
+      <Parameter Name="UserJobPosition" Mode="In" Type="String" />
+      <Parameter Name="UserTimeContact" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_SearchAllConsultantsByName" ReturnType="Collection(DB.GetAllConsultants_Result)">
+      <Parameter Name="ConsultantName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_SearchAllUsersByFullName" ReturnType="Collection(DB.GetAllUsers_Result)">
+      <Parameter Name="UserFullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Users_AdvanceSearch" ReturnType="Collection(DB.GetAllUsersCanMakeFriendsByCurrentUserID_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserFullName" Mode="In" Type="String" />
+      <Parameter Name="UserGender" Mode="In" Type="String" />
+      <Parameter Name="UserEmail" Mode="In" Type="String" />
+      <Parameter Name="UserAddCity" Mode="In" Type="String" />
+      <Parameter Name="AgeFrom" Mode="In" Type="Int32" />
+      <Parameter Name="AgeTo" Mode="In" Type="Int32" />
+      <Parameter Name="UserHeight" Mode="In" Type="String" />
+      <Parameter Name="UserWeight" Mode="In" Type="String" />
+      <Parameter Name="UserFavColor" Mode="In" Type="String" />
+      <Parameter Name="UserFavFoods" Mode="In" Type="String" />
+      <Parameter Name="UserReadingBook" Mode="In" Type="String" />
+      <Parameter Name="UserFavPet" Mode="In" Type="String" />
+      <Parameter Name="UserPeopleLike" Mode="In" Type="String" />
+      <Parameter Name="UserPeopleDislike" Mode="In" Type="String" />
+      <Parameter Name="UserHobby" Mode="In" Type="String" />
+      <Parameter Name="UserCareer" Mode="In" Type="String" />
+      <Parameter Name="UserJobPosition" Mode="In" Type="String" />
+      <Parameter Name="UserTimeContact" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetUserInfoByID" EntitySet="Users" ReturnType="Collection(DB.User)">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteVIPVideo">
+      <Parameter Name="VipVideoID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllShareVideo" EntitySet="VIPVideos" ReturnType="Collection(DB.VIPVideo)" />
+    <FunctionImport Name="GetShareVideo" EntitySet="VIPVideos" ReturnType="Collection(DB.VIPVideo)">
+      <Parameter Name="idUser" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="UserExistInFriendsList" EntitySet="Friends" ReturnType="Collection(DB.Friend)">
+      <Parameter Name="CurrentUserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="UserStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Member_SearchAllMessageByTitle" ReturnType="Collection(DB.GetAllMessageInboxByUserID_Result)">
+      <Parameter Name="UserReceiptID" Mode="In" Type="Int32" />
+      <Parameter Name="MessageTitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <AssociationSet Name="FK_Users_EventParents" Association="DB.FK_Users_EventParents">
+      <End Role="EventParent" EntitySet="EventParents" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <FunctionImport Name="DeleteCommentRelation">
+      <Parameter Name="commentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetTopNewCommentRelationByCommentID" ReturnType="Collection(DB.GetAllCommentRelationByCommentID_Result)">
+      <Parameter Name="CommentID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetMemberAlbumAndPhoto" />
+    <FunctionImport Name="GetAllUsersHaveBirthdayInCurrentMonth" ReturnType="Collection(DB.GetAllUsers_Result)" />
+    <FunctionImport Name="Admin_FilterForAlbums" ReturnType="Collection(DB.GetAlbumInfo_Result)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+      <Parameter Name="AlbumType" Mode="In" Type="String" />
+      <Parameter Name="AlbumStatus" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_FilterForUsers" ReturnType="Collection(DB.GetAllUsers_Result)">
+      <Parameter Name="UserType" Mode="In" Type="String" />
+      <Parameter Name="UserGender" Mode="In" Type="String" />
+      <Parameter Name="UserStatus" Mode="In" Type="String" />
+      <Parameter Name="eventParrent" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllDatePostFromBlogs" ReturnType="Collection(DB.GetAllDatePostFromBlogs_Result)" />
+    <FunctionImport Name="Admin_FilterForBlogs" ReturnType="Collection(DB.GetAllBlogs_Result)">
+      <Parameter Name="DatePost" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_FilterForComments" ReturnType="Collection(DB.GetAllComments_Result)">
+      <Parameter Name="DatePost" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_FilterForMessages" ReturnType="Collection(DB.GetAllMessages_Result)">
+      <Parameter Name="DatePost" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Admin_FilterPhotos" ReturnType="Collection(DB.GetAllPhotos_Result)">
+      <Parameter Name="DatePost" Mode="In" Type="DateTime" />
+      <Parameter Name="Status" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCommentsByUserID" EntitySet="Comments" ReturnType="Collection(DB.Comment)">
+      <Parameter Name="UserID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteAllMessageByUserID">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteAllCommentByUserID">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteAllFriendByUserID">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteShareVideoByUserID">
+      <Parameter Name="userid" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetAllCommentTypical" EntitySet="Comments" ReturnType="Collection(DB.Comment)" />
+    <FunctionImport Name="DeleteCareer">
+      <Parameter Name="CareerID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteProvince">
+      <Parameter Name="ProvinceID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="GetCareerByName" EntitySet="Careers" ReturnType="Collection(DB.Career)">
+      <Parameter Name="CareerName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="GetProvinceByName" EntitySet="Provinces" ReturnType="Collection(DB.Province)">
+      <Parameter Name="ProvinceName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Ads_Delete">
+      <Parameter Name="AdID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Ads_GetAll" EntitySet="Ads" ReturnType="Collection(DB.Ad)" />
+    <FunctionImport Name="Ads_GetByID" EntitySet="Ads" ReturnType="Collection(DB.Ad)">
+      <Parameter Name="AdID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="Ads_GetByOnPage" EntitySet="Ads" ReturnType="Collection(DB.Ad)">
+      <Parameter Name="OnPage" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Ads_GetByOnPageAndPosition" EntitySet="Ads" ReturnType="Collection(DB.Ad)">
+      <Parameter Name="Position" Mode="In" Type="String" />
+      <Parameter Name="OnPage" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Ads_GetByPosition" EntitySet="Ads" ReturnType="Collection(DB.Ad)">
+      <Parameter Name="Position" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Ads_GetByTitle" EntitySet="Ads" ReturnType="Collection(DB.Ad)">
+      <Parameter Name="AdTitle" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="Config_GetByGroup" EntitySet="ConfigValues" ReturnType="Collection(DB.ConfigValue)">
+      <Parameter Name="ConfigGroup" Mode="In" Type="String" />
+    </FunctionImport>
+    <EntitySet Name="Ads" EntityType="DB.Ad" />
+    <EntitySet Name="Careers" EntityType="DB.Career" />
+    <EntitySet Name="Provinces" EntityType="DB.Province" />
+    <FunctionImport Name="GetAllUsers" ReturnType="Collection(DB.GetAllUsers_Result)" />
+    <EntitySet Name="Photos" EntityType="DB.Photo" />
+  </EntityContainer>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Type="Int32" Name="AdminID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserName" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" Nullable="false" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Type" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PCIP" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="AllowLogOn" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+    </Key>
+    <Property Type="Int32" Name="AlbumID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AlbumName" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="AlbumType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="DB.FK_Album_Users" FromRole="Album" ToRole="User" />
+    <NavigationProperty Name="Events" Relationship="DB.FK_Events_Album" FromRole="Album" ToRole="Event" />
+    <Property Type="DateTime" Name="AlbumDate" Nullable="false" />
+    <Property Type="String" Name="AlbumImgTitle" MaxLength="100" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Type="Int32" Name="BlogID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BlogTitle" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="BlogContent" Nullable="false" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ImageUpload" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="DB.FK_Blog_Users" FromRole="Blog" ToRole="User" />
+    <NavigationProperty Name="Comments" Relationship="DB.FK_Comment_Blog" FromRole="Blog" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Type="Int32" Name="CommentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="BlogID" Nullable="false" />
+    <Property Type="Int32" Name="EventID" />
+    <Property Type="String" Name="CommentContent" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Blog" Relationship="DB.FK_Comment_Blog" FromRole="Comment" ToRole="Blog" />
+    <NavigationProperty Name="Event" Relationship="DB.FK_Comment_Events" FromRole="Comment" ToRole="Event" />
+    <NavigationProperty Name="User" Relationship="DB.FK_Comment_Users" FromRole="Comment" ToRole="User" />
+    <Property Type="Boolean" Name="IsTypical" Nullable="false" />
+    <Property Type="Int32" Name="CommentParentID" />
+    <Property Type="String" Name="CommentType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserWall" />
+    <NavigationProperty Name="Comment1" Relationship="DB.FK_Comment_Comment" FromRole="Comment" ToRole="Comment1" />
+    <NavigationProperty Name="Comment2" Relationship="DB.FK_Comment_Comment" FromRole="Comment1" ToRole="Comment" />
+  </EntityType>
+  <EntityType Name="ConfigValue">
+    <Key>
+      <PropertyRef Name="ConfigValueID" />
+    </Key>
+    <Property Type="Int32" Name="ConfigValueID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ConfigKey" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConfigKeyValue" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConfigText" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConfigKeyDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConfigKeyGroup" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="ConfigValueSortOrder" />
+  </EntityType>
+  <EntityType Name="Consultant">
+    <Key>
+      <PropertyRef Name="ConsultantID" />
+    </Key>
+    <Property Type="Int32" Name="ConsultantID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultantName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultantEmail" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultantPhone" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ConsultantYahooID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultantSkypeID" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultantPicture" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultantDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="ConsultantFrontPage" Nullable="false" />
+  </EntityType>
+  <EntityType Name="EventParent">
+    <Key>
+      <PropertyRef Name="EventParentID" />
+    </Key>
+    <Property Type="Int32" Name="EventParentID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EventParentName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EventParentDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Events" Relationship="DB.FK_Events_EventParents" FromRole="EventParent" ToRole="Event" />
+    <NavigationProperty Name="Users" Relationship="DB.FK_Users_EventParents" FromRole="EventParent" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Event">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Type="Int32" Name="EventID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="FK_EventParentID" />
+    <Property Type="Int32" Name="FK_AlbumID" />
+    <Property Type="String" Name="EventName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EventContent" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" />
+    <Property Type="String" Name="EventLocation" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EventTime" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="EventDate" Nullable="false" />
+    <Property Type="String" Name="EventAgeJoint" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="EventImages" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Album" Relationship="DB.FK_Events_Album" FromRole="Event" ToRole="Album" />
+    <NavigationProperty Name="Comments" Relationship="DB.FK_Comment_Events" FromRole="Event" ToRole="Comment" />
+    <NavigationProperty Name="EventParent" Relationship="DB.FK_Events_EventParents" FromRole="Event" ToRole="EventParent" />
+    <Property Type="Boolean" Name="IsTypical" Nullable="false" />
+    <Property Type="String" Name="EventMusic" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Friend">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FriendID" />
+    </Key>
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="FriendID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="DB.FK_Friends_Users" FromRole="Friend" ToRole="User" />
+  </EntityType>
+  <EntityType Name="Message">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Type="Int32" Name="MessageID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="FK_UserSendID" />
+    <Property Type="Int32" Name="FK_UserReceiptID" />
+    <Property Type="DateTime" Name="MessageDatetime" Nullable="false" />
+    <Property Type="String" Name="MessageTitle" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="MessageContent" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MessageDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="DB.FK_Messages_Users" FromRole="Message" ToRole="User" />
+    <NavigationProperty Name="User1" Relationship="DB.FK_Messages_Users1" FromRole="Message" ToRole="User" />
+    <Property Type="Boolean" Name="MessageIsReply" />
+    <Property Type="Boolean" Name="MessageUnRead" />
+    <Property Type="String" Name="MessageType" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Type="Int32" Name="UserID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="UserStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserFullName" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserAddLine" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserAddCity" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserName" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Password" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserPhone" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserEmail" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserPicture" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserIDCard" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="DateTime" Name="UserBirthday" Nullable="false" />
+    <Property Type="String" Name="UserGender" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserLevel" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserReligion" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserMaritalStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserCareer" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserJobPosition" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserFavColor" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserReadingBook" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserFavPet" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserPeopleLike" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserPeopleDislike" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserHobby" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserLookingObj" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserRequirements" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserPwdRecovery" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="UserIsVIP" Nullable="false" />
+    <Property Type="DateTime" Name="UserDatePayment" />
+    <Property Type="String" Name="UserVideoUpload" MaxLength="150" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserDescriptions" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserHope" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserFavFoods" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserTimeContact" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="UserOjbLikeDating" MaxLength="250" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Albums" Relationship="DB.FK_Album_Users" FromRole="User" ToRole="Album" />
+    <NavigationProperty Name="Blogs" Relationship="DB.FK_Blog_Users" FromRole="User" ToRole="Blog" />
+    <NavigationProperty Name="Comments" Relationship="DB.FK_Comment_Users" FromRole="User" ToRole="Comment" />
+    <NavigationProperty Name="Friends" Relationship="DB.FK_Friends_Users" FromRole="User" ToRole="Friend" />
+    <NavigationProperty Name="Messages" Relationship="DB.FK_Messages_Users" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="Messages1" Relationship="DB.FK_Messages_Users1" FromRole="User" ToRole="Message" />
+    <NavigationProperty Name="VIPVideos" Relationship="DB.FK_VIPVideo_Users" FromRole="User" ToRole="VIPVideo" />
+    <Property Type="DateTime" Name="UserRegisterDate" Nullable="false" />
+    <Property Type="String" Name="UserWage" Nullable="true" />
+    <Property Type="String" Name="UserWorkingTime" Nullable="true" />
+    <Property Type="String" Name="UserHeight" />
+    <Property Type="String" Name="UserWeight" />
+    <Property Type="Int32" Name="UserEventParentID" Nullable="false" />
+    <NavigationProperty Name="EventParent" Relationship="DB.FK_Users_EventParents" FromRole="User" ToRole="EventParent" />
+    <Property Type="String" Name="UserType" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Double" Name="VIPPeriod" />
+    <Property Type="Double" Name="VIPRemain" />
+    <Property Type="String" Name="UserAvatarUpload" MaxLength="250" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="VIPVideo">
+    <Key>
+      <PropertyRef Name="VipVideoID" />
+    </Key>
+    <Property Type="Int32" Name="VipVideoID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="VideoPartnerID" Nullable="false" />
+    <Property Type="DateTime" Name="DateCreate" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="DB.FK_VIPVideo_Users" FromRole="VIPVideo" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_Album_Users">
+    <End Type="DB.User" Role="User" Multiplicity="1" />
+    <End Type="DB.Album" Role="Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Album">
+    <End Type="DB.Album" Role="Album" Multiplicity="0..1" />
+    <End Type="DB.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumID" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="FK_AlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blog_Users">
+    <End Type="DB.User" Role="User" Multiplicity="1" />
+    <End Type="DB.Blog" Role="Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Blog">
+    <End Type="DB.Blog" Role="Blog" Multiplicity="1" />
+    <End Type="DB.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blog">
+        <PropertyRef Name="BlogID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="BlogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Events">
+    <End Type="DB.Event" Role="Event" Multiplicity="0..1" />
+    <End Type="DB.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Event">
+        <PropertyRef Name="EventID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="EventID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Users">
+    <End Type="DB.User" Role="User" Multiplicity="1" />
+    <End Type="DB.Comment" Role="Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_EventParents">
+    <End Type="DB.EventParent" Role="EventParent" Multiplicity="0..1" />
+    <End Type="DB.Event" Role="Event" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventParent">
+        <PropertyRef Name="EventParentID" />
+      </Principal>
+      <Dependent Role="Event">
+        <PropertyRef Name="FK_EventParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Friends_Users">
+    <End Type="DB.User" Role="User" Multiplicity="1" />
+    <End Type="DB.Friend" Role="Friend" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Friend">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_Users">
+    <End Type="DB.User" Role="User" Multiplicity="0..1" />
+    <End Type="DB.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="FK_UserSendID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_Users1">
+    <End Type="DB.User" Role="User" Multiplicity="0..1" />
+    <End Type="DB.Message" Role="Message" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Message">
+        <PropertyRef Name="FK_UserReceiptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VIPVideo_Users">
+    <End Type="DB.User" Role="User" Multiplicity="1" />
+    <End Type="DB.VIPVideo" Role="VIPVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="VIPVideo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetAllBlogs_Result">
+    <Property Type="Int32" Name="BlogID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="BlogTitle" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="BlogContent" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="ImageUpload" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" Precision="23" />
+    <Property Type="String" Name="StatusText" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetBlogByID_Result">
+    <Property Type="Int32" Name="BlogID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="BlogTitle" Nullable="false" MaxLength="200" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="BlogContent" Nullable="false" MaxLength="1000" />
+    <Property Type="String" Name="ImageUpload" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" Precision="23" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAllComments_Result">
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="Int32" Name="BlogID" Nullable="true" />
+    <Property Type="Int32" Name="EventID" Nullable="true" />
+    <Property Type="String" Name="CommentContent" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BlogTitle" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="EventName" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="CommentParentID" Nullable="true" />
+    <Property Type="Int32" Name="UserWall" Nullable="true" />
+    <Property Type="Boolean" Name="IsTypical" Nullable="false" />
+    <Property Type="String" Name="CommentType" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetCommentByID_Result">
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="Int32" Name="BlogID" Nullable="true" />
+    <Property Type="Int32" Name="EventID" Nullable="true" />
+    <Property Type="String" Name="CommentContent" Nullable="false" MaxLength="200" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" Precision="23" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="BlogTitle" Nullable="false" MaxLength="200" />
+    <Property Type="String" Name="EventName" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAllEventParents_Result">
+    <Property Type="Int32" Name="EventParentID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EventParentDesc" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetEventParentByID_Result">
+    <Property Type="Int32" Name="EventParentID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EventParentDesc" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAllConsultings_Result">
+    <Property Type="Int32" Name="ConsultingID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultingQuestions" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ConsultingAnwsers" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ConsultingDesction" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ConfigText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetConsultingByID_Result">
+    <Property Type="Int32" Name="ConsultingID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultingQuestions" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ConsultingAnwsers" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="ConsultingDesction" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="ConfigText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetNIdEventParents_Result">
+    <Property Type="Int32" Name="EventParentID" Nullable="false" />
+    <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetConsultingStatus_Result">
+    <Property Type="String" Name="ConfigKey" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ConfigText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="MenuConfig">
+    <Key>
+      <PropertyRef Name="MenuConfigID" />
+    </Key>
+    <Property Type="Int32" Name="MenuConfigID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="MenuConfigName" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Contents" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="MenuNo" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <ComplexType Name="GetAllBlogOfFriends_Result">
+    <Property Type="Int32" Name="BlogID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="BlogTitle" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="BlogContent" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="ImageUpload" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Datepost" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAlbumInfo_Result">
+    <Property Type="Int32" Name="AlbumID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="String" Name="AlbumType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ConfigText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAlbumStatus_Result">
+    <Property Type="String" Name="ConfigKey" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ConfigText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAlbumInfoById_Result">
+    <Property Type="Int32" Name="AlbumID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="String" Name="AlbumType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="ConfigText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetPhotoByAlbum_Result">
+    <Property Type="Int32" Name="PhotoID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AlbumID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="DateUpload" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="GetAllFriendsByUser_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="Int32" Name="FriendID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserNameOfFriend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FullNameOfFriend" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PictureOfFriend" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAllCommentsEvent_Result">
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="UserID" Nullable="true" />
+    <Property Type="Int32" Name="BlogID" Nullable="true" />
+    <Property Type="Int32" Name="EventID" Nullable="true" />
+    <Property Type="String" Name="CommentContent" Nullable="true" MaxLength="500" />
+    <Property Type="DateTime" Name="Datepost" Nullable="true" Precision="23" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="EventName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetTopFiveNewEvent_Result">
+    <Property Type="String" Name="EventName" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="EventTime" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="EventDate" Nullable="true" Precision="23" />
+    <Property Type="String" Name="EventImages" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="EventID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetTopFiveBlogByUserID_Result">
+    <Property Type="String" Name="BlogTitle" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="ImageUpload" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="Datepost" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="BlogID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetTopFiveAlbumAndPhotoByUserID_Result">
+    <Property Type="Int32" Name="AlbumID" Nullable="false" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="AlbumDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="GetAllCommentRelationByCommentID_Result">
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="CommentContent" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CommentParentID" Nullable="true" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="GetAllCommentsByWall_Result">
+    <Property Type="Int32" Name="CommentID" Nullable="false" />
+    <Property Type="String" Name="CommentContent" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="CommentParentID" Nullable="true" />
+    <Property Type="DateTime" Name="Datepost" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+  </ComplexType>
+  <Association Name="FK_Comment_Comment">
+    <End Type="DB.Comment" Role="Comment" Multiplicity="0..1" />
+    <End Type="DB.Comment" Role="Comment1" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentID" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="CommentParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Consulting">
+    <Key>
+      <PropertyRef Name="ConsultingID" />
+    </Key>
+    <Property Type="Int32" Name="ConsultingID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultingQuestions" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultingAnwsers" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ConsultingDesction" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DatePost" />
+  </EntityType>
+  <ComplexType Name="GetMemberAlbum_Result">
+    <Property Type="Int32" Name="AlbumID" Nullable="false" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="150" />
+    <Property Type="Int32" Name="NumberPho" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SearchAllFriendsOfCurrentUserIdByFullName_Result">
+    <Property Type="Int32" Name="UserIdOfFriend" Nullable="false" />
+    <Property Type="String" Name="UserNameOfFriend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FullNameOfFriend" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PictureOfFriend" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAllFriendsOfCurrentUserByID_Result">
+    <Property Type="Int32" Name="UserIdOfFriend" Nullable="false" />
+    <Property Type="String" Name="UserNameOfFriend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FullNameOfFriend" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="PictureOfFriend" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <EntityType Name="OlineSupport">
+    <Key>
+      <PropertyRef Name="OSID" />
+    </Key>
+    <Property Type="Int32" Name="OSID" Nullable="false" />
+    <Property Type="String" Name="OSPhone1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSPhone2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSCellPhone1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSCellPhone2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSYahoo1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSYahoo2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSSkype1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSSkype2" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsActive" Nullable="false" />
+    <Property Type="String" Name="Description" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSEmailTo1" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSEmailTo2" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSEmailFrom" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSPwdEmailFrom" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Address1" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="Fax1" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSPort" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OSHost" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="UserSearch_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="UserBirthday" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserGender" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserAddCity" Nullable="true" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="GetUserName_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetEmailConfigSupport_Result">
+    <Property Type="String" Name="OSEmailTo1" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OSEmailTo2" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OSEmailFrom" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="OSPwdEmailFrom" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OSPort" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="OSHost" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetAllUsersWantToMakeFriendsWithMe_Result">
+    <Property Type="Int32" Name="UserIdOfFriend" Nullable="false" />
+    <Property Type="String" Name="UserNameOfFriend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullNameOfFriend" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserPictureOfFriend" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="UserBirthdayOfFriend" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserGenderOfFriend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetAllUsersCanMakeFriendsByCurrentUserID_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="UserBirthday" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserGender" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserStatus" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <Association Name="FK_Users_EventParents">
+    <End Type="DB.EventParent" Role="EventParent" Multiplicity="1" />
+    <End Type="DB.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventParent">
+        <PropertyRef Name="EventParentID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserEventParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="GetAllDatePostFromBlogs_Result">
+    <Property Type="DateTime" Name="DatePost" Nullable="false" Precision="23" />
+  </ComplexType>
+  <ComplexType Name="GetUserByID_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserAddLine" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserAddCity" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserIDCard" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="UserBirthday" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserGender" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserLevel" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserReligion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserMaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserCareer" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserJobPosition" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserWage" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserWorkingTime" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFavColor" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserReadingBook" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserFavPet" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserPeopleLike" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserPeopleDislike" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserHobby" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserLookingObj" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserRequirements" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserPwdRecovery" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="UserIsVIP" Nullable="false" />
+    <Property Type="DateTime" Name="UserDatePayment" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserVideoUpload" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserDescriptions" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="UserHeight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserWeight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserHope" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserFavFoods" Nullable="true" MaxLength="200" />
+    <Property Type="String" Name="UserTimeContact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserOjbLikeDating" Nullable="true" MaxLength="250" />
+    <Property Type="DateTime" Name="UserRegisterDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UserEventParentID" Nullable="false" />
+    <Property Type="String" Name="UserType" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="VIPPeriod" Nullable="true" />
+    <Property Type="Double" Name="VIPRemain" Nullable="true" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAllMessageInboxByUserID_Result">
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="Int32" Name="MessageID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_UserSendID" Nullable="true" />
+    <Property Type="Int32" Name="FK_UserReceiptID" Nullable="true" />
+    <Property Type="DateTime" Name="MessageDatetime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="MessageTitle" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MessageContent" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="MessageDesc" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="MessageUnRead" Nullable="true" />
+    <Property Type="Boolean" Name="MessageIsReply" Nullable="true" />
+    <Property Type="String" Name="MessageType" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="GetAllMessages_Result">
+    <Property Type="Int32" Name="MessageID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_UserSendID" Nullable="true" />
+    <Property Type="Int32" Name="FK_UserReceiptID" Nullable="true" />
+    <Property Type="DateTime" Name="MessageDatetime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="MessageTitle" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MessageContent" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="MessageDesc" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="MessageUnRead" Nullable="true" />
+    <Property Type="Boolean" Name="MessageIsReply" Nullable="true" />
+    <Property Type="String" Name="MessageType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserNameSend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FullNameSend" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserNameReceipt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullNameReceipt" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetMessageByID_Result">
+    <Property Type="Int32" Name="MessageID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_UserSendID" Nullable="true" />
+    <Property Type="Int32" Name="FK_UserReceiptID" Nullable="true" />
+    <Property Type="DateTime" Name="MessageDatetime" Nullable="false" Precision="23" />
+    <Property Type="String" Name="MessageTitle" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="MessageContent" Nullable="true" MaxLength="1000" />
+    <Property Type="String" Name="MessageDesc" Nullable="true" MaxLength="500" />
+    <Property Type="Boolean" Name="MessageUnRead" Nullable="true" />
+    <Property Type="Boolean" Name="MessageIsReply" Nullable="true" />
+    <Property Type="String" Name="MessageType" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserNameSend" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FullNameSend" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserNameReceipt" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullNameReceipt" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserPictureSend" Nullable="true" MaxLength="250" />
+  </ComplexType>
+  <ComplexType Name="GetAllConsultants_Result">
+    <Property Type="Int32" Name="ConsultantID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantEmail" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ConsultantPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantYahooID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantSkypeID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantPicture" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ConsultantDesc" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="ConsultantFrontPage" Nullable="false" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetConsultantByID_Result">
+    <Property Type="Int32" Name="ConsultantID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantEmail" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ConsultantPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantYahooID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantSkypeID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConsultantPicture" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="ConsultantDesc" Nullable="true" MaxLength="Max" />
+    <Property Type="Boolean" Name="ConsultantFrontPage" Nullable="false" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAlbumAndPhoto_Result">
+    <Property Type="Int32" Name="AlbumID" Nullable="false" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="AlbumDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="AlbumImgTitle" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetAllPhotos_Result">
+    <Property Type="Int32" Name="PhotoID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AlbumID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="DateUpload" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PhotoOriginal" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="GetPhotoByID_Result">
+    <Property Type="Int32" Name="PhotoID" Nullable="false" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="AlbumID" Nullable="true" />
+    <Property Type="String" Name="Description" Nullable="true" MaxLength="100" />
+    <Property Type="DateTime" Name="DateUpload" Nullable="true" Precision="23" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="PhotoOriginal" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="AlbumName" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <EntityType Name="Ad">
+    <Key>
+      <PropertyRef Name="AdID" />
+    </Key>
+    <Property Type="Int32" Name="AdID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="AAStatus" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="AACreateDate" Nullable="false" />
+    <Property Type="String" Name="AdImagePath" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdImageThumbPath" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdLink" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdTitle" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="AdContent" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="SortOrder" />
+    <Property Type="String" Name="Position" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="OnPage" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Career">
+    <Key>
+      <PropertyRef Name="CareerID" />
+    </Key>
+    <Property Type="Int32" Name="CareerID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="CareerName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="CareerDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Province">
+    <Key>
+      <PropertyRef Name="ProvinceID" />
+    </Key>
+    <Property Type="Int32" Name="ProvinceID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="ProvinceName" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="ProvinceDesc" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <ComplexType Name="GetAllUsers_Result">
+    <Property Type="Int32" Name="UserID" Nullable="false" />
+    <Property Type="String" Name="UserStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserFullName" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserAddLine" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserAddCity" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserPhone" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserEmail" Nullable="true" MaxLength="150" />
+    <Property Type="String" Name="UserPicture" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserIDCard" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="UserBirthday" Nullable="false" Precision="23" />
+    <Property Type="String" Name="UserGender" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserLevel" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="UserReligion" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserMaritalStatus" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserCareer" Nullable="true" />
+    <Property Type="String" Name="UserJobPosition" Nullable="true" />
+    <Property Type="String" Name="UserWage" Nullable="true" />
+    <Property Type="String" Name="UserWorkingTime" Nullable="true" />
+    <Property Type="String" Name="UserFavColor" Nullable="true" />
+    <Property Type="String" Name="UserReadingBook" Nullable="true" />
+    <Property Type="String" Name="UserFavPet" Nullable="true" />
+    <Property Type="String" Name="UserPeopleLike" Nullable="true" />
+    <Property Type="String" Name="UserPeopleDislike" Nullable="true" />
+    <Property Type="String" Name="UserHobby" Nullable="true" />
+    <Property Type="String" Name="UserLookingObj" Nullable="true" />
+    <Property Type="String" Name="UserRequirements" Nullable="true" />
+    <Property Type="String" Name="UserPwdRecovery" Nullable="true" MaxLength="250" />
+    <Property Type="Boolean" Name="UserIsVIP" Nullable="false" />
+    <Property Type="DateTime" Name="UserDatePayment" Nullable="true" Precision="23" />
+    <Property Type="String" Name="UserVideoUpload" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="UserDescriptions" Nullable="true" MaxLength="Max" />
+    <Property Type="String" Name="UserHeight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserWeight" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserHope" Nullable="true" />
+    <Property Type="String" Name="UserFavFoods" Nullable="true" />
+    <Property Type="String" Name="UserTimeContact" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="UserOjbLikeDating" Nullable="true" />
+    <Property Type="DateTime" Name="UserRegisterDate" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="UserEventParentID" Nullable="false" />
+    <Property Type="String" Name="UserType" Nullable="true" MaxLength="50" />
+    <Property Type="Double" Name="VIPPeriod" Nullable="true" />
+    <Property Type="Double" Name="VIPRemain" Nullable="true" />
+    <Property Type="String" Name="UserAvatarUpload" Nullable="true" MaxLength="250" />
+    <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="EventParentName" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="EventParentID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="PhotoID" />
+    </Key>
+    <Property Type="Int32" Name="PhotoID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Status" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Type="Int32" Name="AlbumID" />
+    <Property Type="String" Name="Description" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Type="DateTime" Name="DateUpload" />
+    <Property Type="String" Name="PhotoPath" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="String" Name="PhotoOriginal" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Type="Boolean" Name="IsTypical" Nullable="false" />
+  </EntityType>
+</Schema>

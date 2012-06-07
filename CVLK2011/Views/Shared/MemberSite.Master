@@ -1,0 +1,208 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+<%@ Import Namespace="CVLK2011.Models" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <link href="../../Content/MemberSite.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+    <link href="../../Content/layout.css" rel="stylesheet" type="text/css" />	
+    <link href="../../Content/spacegallery.css" rel="stylesheet" type="text/css" />
+	<link href="../../Content/custom.css" rel="stylesheet" type="text/css" />
+	
+    <link href="../../Content/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.ui.autocomplete.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.ui.base.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.ui.button.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/jquery.ui.theme.css" rel="stylesheet" type="text/css" />
+    <link href="../../Content/themes/base/jquery.ui.all.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="../../Content/lightbox/css/lightbox.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="../../Content/library/thumbs.css" type="text/css" />
+	    <link href="../../Styles/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    
+    <%-- hoàng chèn tạm start code --%>
+    <style type="text/css">
+        .hidden {
+        display:  none;
+        }
+    </style>
+    <script type="text/javascript"  src="../../../Scripts/jquery.min.js"></script>
+    <script  type="text/javascript"  src="../../../Scripts/jquery-ui.min.js"></script>
+    <script  type="text/javascript">
+        $(function () {
+            $(".tabmenu").removeClass("hidden");
+            $(".tabs  h2").addClass("hidden");
+            $(".tabs").tabs();
+        });
+    </script>
+    <%-- End code --%>
+   
+     <script src="../../Scripts/jquery-1.4.1.min.js" type="text/javascript"></script>
+    <script src="../../Scripts/MicrosoftAjax.js" type="text/javascript"></script>
+    <script src="../../Scripts/MicrosoftMvcAjax.js" type="text/javascript"></script>
+    <script src="../../Scripts/MicrosoftMvcValidation.js" type="text/javascript"></script>
+    <% Html.EnableClientValidation(); %>
+    <script type="text/javascript">
+
+        function ConfirmDeleteMemberSite() {
+            if (confirm("Bạn chắc chắn xóa?") == true) {
+                return true;
+            }
+            else {
+                return false;
+            }
+
+        }
+			     
+			    
+    </script>
+</head>
+
+<body>
+  <div class="top_mermber">
+    <table style="width:950px;margin-left: auto;
+margin-right: auto;" >
+        <tr>
+            <td style="width:280px;padding-left:100px;">
+               <%: Html.ActionLink("Trang chủ CauVongLienKet.Com", "Index", "Home")%></td>
+            <td style="width:570px;text-align:right;">
+              Chào  &nbsp;  <% if (Session["CurrentUserObject"] != null){%>
+              <a href="<%=Url.Action("Index", "MemberHome", new { id = ((User)Session["CurrentUserObject"]).UserID })%>"><%=Html.Encode(((User)Session["CurrentUserObject"]).UserFullName)%></a>
+                |&nbsp; 
+               <a href="<%=Url.Action("ChangePassword", "MemberProfile", new { id = ((User)Session["CurrentUserObject"]).UserID })%>">Đổi Mật Khẩu</a>&nbsp;
+               |&nbsp;<%=Html.ActionLink("Thoát","Logout","Home")%>  
+               <%} %> 
+            </td>
+        </tr>
+    </table>
+ </div>
+  <div class="tb_menu">
+ <table align="center" border="0" cellpadding="0" cellspacing="0" width="950px" style="
+margin-left: auto;
+margin-right: auto;">
+ 
+   <tbody>
+   <tr>
+   <td class="logo_site_member" rowspan="2"  >CauVongLienKet</td>
+     <td  >
+     
+     
+    
+     
+     
+     <div id="stylefive">
+  <ul>
+  <%if (Session["CurrentUserID"] != null)
+    { %>
+  <li><a href="<%=Url.Action("Index","MemberHome", new {id=Convert.ToInt32(Session["CurrentUserID"].ToString())})%>">Home</a></li>
+    <li>
+    <a href="<%=Url.Action("Index","MemberProfile", new {id=Convert.ToInt32(Session["CurrentUserID"].ToString())})%>">Profile</a></li>
+    <li> <a href="<%=Url.Action("Index", "MemberPhoto",new {id=Convert.ToInt32(Session["CurrentUserID"].ToString())})%>">Photo</a></li>
+    <li><%= Html.ActionLink("Video", "Index", "MemberVideo")%></li>
+    <li> <a href="<%=Url.Action("Index", "MemberFriends",new {id=Convert.ToInt32(Session["CurrentUserID"].ToString())})%>">Friend</a></li>
+   <li><a href="<%=Url.Action("Index","MemberBlog", new {id=Convert.ToInt32(Session["CurrentUserID"].ToString())})%>">Blog</a></li>
+    <li><%=Html.ActionLink("Message", "Index", "MemberMessage")%></li>
+   <%} %>
+    
+    <li>
+    
+    <% using (Html.BeginForm("SearchNewFriendsInList", "MemberFriends", FormMethod.Post, new { enctype = "multipart/data-form" }))
+       { %>
+  	<div >
+        <%=Html.TextBox("userFullName", "", new { Style = "Width:210px; height:12px; border:1px solid #C6D6EC;background:#fff; margin-top:3px" })%>
+        <input type="submit" class="icon_search" value=" " style="height:17px;" />
+		</div>
+    <%} %>
+    
+    </li>
+
+
+    
+
+  </ul>
+</div>
+
+
+     
+     </td>
+   </tr>
+  
+   <tr>
+     <td  style="background:#D8DFEA;height:24px;border-left:1px solid #4A6EA4;border-right:1px solid #4A6EA4;">
+        <div id="path">
+            <%--<% Html.RenderPartial("SiteMapPathUserControl"); %>--%>
+            </div>
+        </td>
+   </tr>
+  
+ </tbody>
+ </table>
+ </div>
+  <div id="member_info">
+    <div  id="member_left" >
+ <div class="member_friend_info_left">
+ <%if (Session["GuestUserID"] != null)
+   { %> <%=Html.Action("LeftWall", "MemberHome", new RouteValueDictionary { { "UserID", Convert.ToInt32(Session["GuestUserID"]) } })%>
+ 
+</div>
+
+<hr />
+
+   <div>
+        <%=Html.Action("Friends", "MemberHome", new RouteValueDictionary { { "UserID", Convert.ToInt32(Session["GuestUserID"]) } })%>
+   </div>        
+   <%} %>
+
+<%--
+            <div class="member_friend_info_left">
+  <ul>
+    <li> <a href="#"> <img src="../../Images/zme_icomsg.gif" align="top" border="0"> &nbsp; Gửi tin nhắn</a></li>
+    <li><a href="#"><img src="../../Images/icon_blog.gif" align="top">  &nbsp; Xem blog</a></li>
+    <li><a href="#"> <img src="../../Images/icon_photo.gif" align="top">  &nbsp;Xem Photo</a></li>
+    <li><a href="#"> <img src="../../Images/gift.gif" align="top"> &nbsp; tặng Quà</a></li>
+ 
+  </ul>
+</div>--%>
+
+
+        
+        </div>
+ 
+
+        <div id="member_right">
+
+
+               <asp:ContentPlaceHolder ID="MainContent" runat="server"/>
+
+        </div>
+
+        <div id="member_footer">
+
+
+
+
+
+              
+
+                      <table class="tb_member_footer">
+                        <tr>
+                            <td style="width:500px;text-align:left;color:#4A6EA4;font-weight:bold;">
+                                Cầu Vồng Liên Kết</td>
+                            <td style="width:500px;text-align:right;color:#363535;font-weight:bold;">
+                                Power by VNECOM</td>
+                        </tr>
+                    </table>
+
+
+
+
+
+
+              
+
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,893 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DB.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="DBStoreContainer">
+    <EntitySet Name="Ad" EntityType="DB.Store.Ad" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Admin" EntityType="DB.Store.Admin" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Album" EntityType="DB.Store.Album" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Blog" EntityType="DB.Store.Blog" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Comment" EntityType="DB.Store.Comment" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="ConfigValues" EntityType="DB.Store.ConfigValues" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Consultants" EntityType="DB.Store.Consultants" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Consultings" EntityType="DB.Store.Consultings" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="EventParents" EntityType="DB.Store.EventParents" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Events" EntityType="DB.Store.Events" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Friends" EntityType="DB.Store.Friends" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MenuConfigs" EntityType="DB.Store.MenuConfigs" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Messages" EntityType="DB.Store.Messages" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="OlineSupport" EntityType="DB.Store.OlineSupport" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Photo" EntityType="DB.Store.Photo" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Users" EntityType="DB.Store.Users" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="VIPVideo" EntityType="DB.Store.VIPVideo" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Album_Users" Association="DB.Store.FK_Album_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Album" EntitySet="Album" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Blog_Users" Association="DB.Store.FK_Blog_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Blog" EntitySet="Blog" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Blog" Association="DB.Store.FK_Comment_Blog">
+      <End Role="Blog" EntitySet="Blog" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Comment" Association="DB.Store.FK_Comment_Comment">
+      <End Role="Comment" EntitySet="Comment" />
+      <End Role="Comment1" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Events" Association="DB.Store.FK_Comment_Events">
+      <End Role="Events" EntitySet="Events" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comment_Users" Association="DB.Store.FK_Comment_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Comment" EntitySet="Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Events_Album" Association="DB.Store.FK_Events_Album">
+      <End Role="Album" EntitySet="Album" />
+      <End Role="Events" EntitySet="Events" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Friends_Users" Association="DB.Store.FK_Friends_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Friends" EntitySet="Friends" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_Users" Association="DB.Store.FK_Messages_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Messages_Users1" Association="DB.Store.FK_Messages_Users1">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Messages" EntitySet="Messages" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Photo_Album" Association="DB.Store.FK_Photo_Album">
+      <End Role="Album" EntitySet="Album" />
+      <End Role="Photo" EntitySet="Photo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Users_EventParents" Association="DB.Store.FK_Users_EventParents">
+      <End Role="EventParents" EntitySet="EventParents" />
+      <End Role="Users" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_VIPVideo_Users" Association="DB.Store.FK_VIPVideo_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="VIPVideo" EntitySet="VIPVideo" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Ad">
+    <Key>
+      <PropertyRef Name="AdID" />
+    </Key>
+    <Property Name="AdID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Image" Type="nvarchar" MaxLength="50" />
+    <Property Name="Link" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsVisible" Type="bit" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Admin">
+    <Key>
+      <PropertyRef Name="AdminID" />
+    </Key>
+    <Property Name="AdminID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="250" />
+    <Property Name="Type" Type="nvarchar" MaxLength="50" />
+    <Property Name="PCIP" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Album">
+    <Key>
+      <PropertyRef Name="AlbumID" />
+    </Key>
+    <Property Name="AlbumID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="AlbumName" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="AlbumType" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="AlbumDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Blog">
+    <Key>
+      <PropertyRef Name="BlogID" />
+    </Key>
+    <Property Name="BlogID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="BlogTitle" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="BlogContent" Type="ntext" />
+    <Property Name="ImageUpload" Type="nvarchar" MaxLength="500" />
+    <Property Name="Datepost" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Comment">
+    <Key>
+      <PropertyRef Name="CommentID" />
+    </Key>
+    <Property Name="CommentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="CommentParentID" Type="int" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="UserWall" Type="int" />
+    <Property Name="BlogID" Type="int" />
+    <Property Name="EventID" Type="int" />
+    <Property Name="CommentContent" Type="nvarchar" MaxLength="500" />
+    <Property Name="Datepost" Type="datetime" Nullable="false" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsTypical" Type="bit" Nullable="false" />
+    <Property Name="CommentType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ConfigValues">
+    <Key>
+      <PropertyRef Name="ConfigValueID" />
+    </Key>
+    <Property Name="ConfigValueID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="ConfigKey" Type="nvarchar" MaxLength="100" />
+    <Property Name="ConfigKeyValue" Type="nvarchar" MaxLength="100" />
+    <Property Name="ConfigText" Type="nvarchar" MaxLength="100" />
+    <Property Name="ConfigKeyDesc" Type="nvarchar" MaxLength="500" />
+    <Property Name="ConfigKeyGroup" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfigValueSortOrder" Type="int" />
+  </EntityType>
+  <EntityType Name="Consultants">
+    <Key>
+      <PropertyRef Name="ConsultantID" />
+    </Key>
+    <Property Name="ConsultantID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConsultantName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConsultantEmail" Type="nvarchar" MaxLength="250" />
+    <Property Name="ConsultantPhone" Type="varchar" MaxLength="50" />
+    <Property Name="ConsultantYahooID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConsultantSkypeID" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConsultantPicture" Type="nvarchar" MaxLength="250" />
+    <Property Name="ConsultantDesc" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Consultings">
+    <Key>
+      <PropertyRef Name="ConsultingID" />
+    </Key>
+    <Property Name="ConsultingID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConsultingQuestions" Type="nvarchar" MaxLength="1000" />
+    <Property Name="ConsultingAnwsers" Type="ntext" />
+    <Property Name="ConsultingDesction" Type="nvarchar" MaxLength="500" />
+    <Property Name="DatePost" Type="datetime" />
+  </EntityType>
+  <EntityType Name="EventParents">
+    <Key>
+      <PropertyRef Name="EventParentID" />
+    </Key>
+    <Property Name="EventParentID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventParentName" Type="nvarchar" MaxLength="100" />
+    <Property Name="EventParentDesc" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Events">
+    <Key>
+      <PropertyRef Name="EventID" />
+    </Key>
+    <Property Name="EventID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_EventParentID" Type="int" />
+    <Property Name="FK_AlbumID" Type="int" />
+    <Property Name="EventName" Type="nvarchar" MaxLength="500" />
+    <Property Name="Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventContent" Type="ntext" />
+    <Property Name="Datepost" Type="datetime" Nullable="false" />
+    <Property Name="EventLocation" Type="nvarchar" MaxLength="500" />
+    <Property Name="EventTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventDate" Type="datetime" Nullable="false" />
+    <Property Name="EventAgeJoint" Type="nvarchar" MaxLength="50" />
+    <Property Name="EventImages" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsTypical" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Friends">
+    <Key>
+      <PropertyRef Name="UserID" />
+      <PropertyRef Name="FriendID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="FriendID" Type="int" Nullable="false" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="MenuConfigs">
+    <Key>
+      <PropertyRef Name="MenuConfigID" />
+    </Key>
+    <Property Name="MenuConfigID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="MenuConfigName" Type="nvarchar" Nullable="false" MaxLength="50" />
+    <Property Name="MenuNo" Type="varchar" MaxLength="50" />
+    <Property Name="Contents" Type="ntext" />
+  </EntityType>
+  <EntityType Name="Messages">
+    <Key>
+      <PropertyRef Name="MessageID" />
+    </Key>
+    <Property Name="MessageID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_UserSendID" Type="int" />
+    <Property Name="FK_UserReceiptID" Type="int" />
+    <Property Name="MessageDatetime" Type="datetime" Nullable="false" />
+    <Property Name="MessageTitle" Type="nvarchar" MaxLength="150" />
+    <Property Name="MessageContent" Type="nvarchar" MaxLength="1000" />
+    <Property Name="MessageDesc" Type="nvarchar" MaxLength="500" />
+    <Property Name="MessageUnRead" Type="bit" />
+    <Property Name="MessageIsReply" Type="bit" />
+  </EntityType>
+  <EntityType Name="OlineSupport">
+    <Key>
+      <PropertyRef Name="OSID" />
+    </Key>
+    <Property Name="OSID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="OSPhone1" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSPhone2" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSCellPhone1" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSCellPhone2" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSEmailTo1" Type="nvarchar" MaxLength="250" />
+    <Property Name="OSEmailTo2" Type="nvarchar" MaxLength="250" />
+    <Property Name="OSEmailFrom" Type="nvarchar" MaxLength="250" />
+    <Property Name="OSPwdEmailFrom" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSPort" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSHost" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSYahoo1" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSYahoo2" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSSkype1" Type="nvarchar" MaxLength="50" />
+    <Property Name="OSSkype2" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Address" Type="nvarchar" MaxLength="500" />
+    <Property Name="Address1" Type="nvarchar" MaxLength="500" />
+    <Property Name="Fax" Type="nvarchar" MaxLength="50" />
+    <Property Name="Fax1" Type="nvarchar" MaxLength="50" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Photo">
+    <Key>
+      <PropertyRef Name="PhotoID" />
+    </Key>
+    <Property Name="PhotoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="AlbumID" Type="int" />
+    <Property Name="Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="DateUpload" Type="datetime" />
+    <Property Name="PhotoPath" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="UserStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserFullName" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserAddLine" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserAddCity" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserPhone" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserEmail" Type="nvarchar" MaxLength="150" />
+    <Property Name="UserPicture" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserIDCard" Type="varchar" MaxLength="50" />
+    <Property Name="UserBirthday" Type="datetime" Nullable="false" />
+    <Property Name="UserGender" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserLevel" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserReligion" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserMaritalStatus" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserCareer" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserJobPosition" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserWage" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserWorkingTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserFavColor" Type="nvarchar" MaxLength="100" />
+    <Property Name="UserReadingBook" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserFavPet" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserPeopleLike" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserPeopleDislike" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserHobby" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserLookingObj" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserRequirements" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserPwdRecovery" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserIsVIP" Type="bit" Nullable="false" />
+    <Property Name="UserDatePayment" Type="datetime" />
+    <Property Name="UserVideoUpload" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserDescriptions" Type="nvarchar" MaxLength="500" />
+    <Property Name="UserHeight" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserWeight" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserHope" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserFavFoods" Type="nvarchar" MaxLength="200" />
+    <Property Name="UserTimeContact" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserOjbLikeDating" Type="nvarchar" MaxLength="250" />
+    <Property Name="UserRegisterDate" Type="datetime" Nullable="false" />
+    <Property Name="UserEventParentID" Type="int" Nullable="false" />
+    <Property Name="UserType" Type="nvarchar" MaxLength="50" />
+    <Property Name="VIPPeriod" Type="float" />
+    <Property Name="VIPRemain" Type="float" />
+  </EntityType>
+  <EntityType Name="VIPVideo">
+    <Key>
+      <PropertyRef Name="VipVideoID" />
+    </Key>
+    <Property Name="VipVideoID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="UserID" Type="int" />
+    <Property Name="VideoPartnerID" Type="int" />
+    <Property Name="DateCreate" Type="datetime" />
+    <Property Name="Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Album_Users">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="0..1" />
+    <End Role="Album" Type="DB.Store.Album" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Album">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Blog_Users">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="0..1" />
+    <End Role="Blog" Type="DB.Store.Blog" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Blog">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Blog">
+    <End Role="Blog" Type="DB.Store.Blog" Multiplicity="0..1" />
+    <End Role="Comment" Type="DB.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Blog">
+        <PropertyRef Name="BlogID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="BlogID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Comment">
+    <End Role="Comment" Type="DB.Store.Comment" Multiplicity="0..1" />
+    <End Role="Comment1" Type="DB.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comment">
+        <PropertyRef Name="CommentID" />
+      </Principal>
+      <Dependent Role="Comment1">
+        <PropertyRef Name="CommentParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Events">
+    <End Role="Events" Type="DB.Store.Events" Multiplicity="0..1" />
+    <End Role="Comment" Type="DB.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Events">
+        <PropertyRef Name="EventID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="EventID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comment_Users">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="0..1" />
+    <End Role="Comment" Type="DB.Store.Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Comment">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Events_Album">
+    <End Role="Album" Type="DB.Store.Album" Multiplicity="0..1" />
+    <End Role="Events" Type="DB.Store.Events" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumID" />
+      </Principal>
+      <Dependent Role="Events">
+        <PropertyRef Name="FK_AlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Friends_Users">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="1" />
+    <End Role="Friends" Type="DB.Store.Friends" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Friends">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_Users">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="0..1" />
+    <End Role="Messages" Type="DB.Store.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="FK_UserSendID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Messages_Users1">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="0..1" />
+    <End Role="Messages" Type="DB.Store.Messages" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="Messages">
+        <PropertyRef Name="FK_UserReceiptID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Photo_Album">
+    <End Role="Album" Type="DB.Store.Album" Multiplicity="0..1" />
+    <End Role="Photo" Type="DB.Store.Photo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Album">
+        <PropertyRef Name="AlbumID" />
+      </Principal>
+      <Dependent Role="Photo">
+        <PropertyRef Name="AlbumID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Users_EventParents">
+    <End Role="EventParents" Type="DB.Store.EventParents" Multiplicity="1" />
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EventParents">
+        <PropertyRef Name="EventParentID" />
+      </Principal>
+      <Dependent Role="Users">
+        <PropertyRef Name="UserEventParentID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_VIPVideo_Users">
+    <End Role="Users" Type="DB.Store.Users" Multiplicity="0..1" />
+    <End Role="VIPVideo" Type="DB.Store.VIPVideo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="VIPVideo">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="ActiveUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Admin_AdvanceSearchByConsultants" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ConsultantName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantPhone" Type="varchar" Mode="In" />
+    <Parameter Name="ConsultantYahooID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantSkypeID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantDesc" Type="nvarchar" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_AdvanceSearchByUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserGender" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserAddCity" Type="nvarchar" Mode="In" />
+    <Parameter Name="AgeFrom" Type="int" Mode="In" />
+    <Parameter Name="AgeTo" Type="int" Mode="In" />
+    <Parameter Name="UserHeight" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserWeight" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFavColor" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFavFoods" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserReadingBook" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFavPet" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPeopleLike" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPeopleDislike" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserHobby" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserCareer" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserJobPosition" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserTimeContact" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_FilterForAlbums" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="AlbumType" Type="nvarchar" Mode="In" />
+    <Parameter Name="AlbumStatus" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_FilterForBlogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DatePost" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_FilterForComments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DatePost" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_FilterForMessages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DatePost" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_FilterForUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserType" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserGender" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserStatus" Type="nvarchar" Mode="In" />
+    <Parameter Name="eventParrent" Type="int" Mode="In" />
+  </Function>
+  <Function Name="Admin_FilterPhotos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="DatePost" Type="datetime" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_SearchAllConsultantsByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ConsultantName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Admin_SearchAllUsersByFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserFullName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ApproveComment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="commentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ApprovePhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="photoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="BlogApprove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="blogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="BlogUnApprove" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="blogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CancelUserVIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="CheckUserEmail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserEmail" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="DeActivateUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="albumId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteAllCommentByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteAllFriendByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteAllMessageByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteBlog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="blogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteComment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CommentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteCommentRelation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="commentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteConsultant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="consultantID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteConsulting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ConsultingID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteEventById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="eventId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteFriendFromFriendsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iUserID" Type="int" Mode="In" />
+    <Parameter Name="iFriendID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteMessage" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="messageID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhotoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeletePhotoByAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="albumId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteShareVideoByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="DeleteVIPVideo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="VipVideoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAdminByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetAlbumAndPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAlbumById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idAlbum" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAlbumInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAlbumInfoById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idAlbum" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAlbumShareByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAlbumStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllAlbumByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllBlogs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllBlogsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllBlogsOfFriend" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCommentByWall" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserWall" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCommentRelationByCommentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CommentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllComments" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllCommentsByBlogID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="BlogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCommentsByEventID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EventID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCommentsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllCommentsEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllCommentsOrderByDatePost" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllConsultants" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetALLConsultings" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllEventParents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllEventTypical" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllFriendsByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllFriendsOfCurrentUserByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllMenuConfigs" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllMessageByUserReceiptID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserReceiptID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllMessageByUserSendID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserSendID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllMessageIsRead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserReceiptID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllMessageIsReply" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserReceiptID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllMessages" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllMessageUnRead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserReceiptID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllPhotos" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllPhotosByAlbumID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="albumid" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllShareVideo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllUsersCanMakeFriendsByCurrentUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllUsersHaveBirthdayInCurrentMonth" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetAllUsersIWantToMakeFriends" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetAllUsersWantToMakeFriendsWithMe" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetBlogByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="blogID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetCommentByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="commentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetConfigValueByEventParentsGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetConsultantByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="consultantID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetConsultingsById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetConsultingStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetDefaultAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetDefaultBlog" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetDefaultComment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetDefaultEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetDefaultUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetEmailConfigSupport" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetEventById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="eventId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetEventParentByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="eventParentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetMaxIDAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetMemberAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetMemberAlbumAndPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetMenuConfigsByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MenuConfigID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetMessageByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="MessageID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetNIdEventParents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetPhotoByAlbum" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idAlbum" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetPhotoByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhotoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetPhotoByUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetShareVideo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idUser" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetStatusByConsultantsGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTopCommentTypicalEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTopEventTypical" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTopFiveAlbumAndPhotoByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTopFiveBlogByUserID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTopFiveNewEvents" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetTopNewCommentRelationByCommentID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CommentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetTopTreeConsulting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUserByID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserByIdUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="GetUserByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetUserIDByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="userName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetUserInfoByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="username" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="GetUserName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="GetUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="Member_SearchAllMessageByTitle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserReceiptID" Type="int" Mode="In" />
+    <Parameter Name="MessageTitle" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="OSActive" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OSID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OSDeActivate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OSID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="OSDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OSID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SearchAllFriendsOfCurrentUserIdByFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="FriendFullName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="SearchAllNewFriendsByCurrentUserIdAndFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="FriendFullName" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UnApproveComment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="commentID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UnApprovePhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="photoID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdateConsultant" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ConsultantID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantName" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantPhone" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantYahooID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantSkypeID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantPicture" Type="nvarchar" Mode="In" />
+    <Parameter Name="ConsultantDesc" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateMessageStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="messageID" Type="int" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateMessageToRead" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="msgID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UpdatePhotoStatus" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PhotoID" Type="int" Mode="In" />
+    <Parameter Name="status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpdateStatusToFriends" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="iUserID" Type="int" Mode="In" />
+    <Parameter Name="iFriendID" Type="int" Mode="In" />
+    <Parameter Name="Status" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UpGradeUserVIP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="UserExistInFriendsList" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CurrentUserID" Type="int" Mode="In" />
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserStatus" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="Users_AdvanceSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserID" Type="int" Mode="In" />
+    <Parameter Name="UserFullName" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserGender" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserEmail" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserAddCity" Type="nvarchar" Mode="In" />
+    <Parameter Name="AgeFrom" Type="int" Mode="In" />
+    <Parameter Name="AgeTo" Type="int" Mode="In" />
+    <Parameter Name="UserHeight" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserWeight" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFavColor" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFavFoods" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserReadingBook" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserFavPet" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPeopleLike" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserPeopleDislike" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserHobby" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserCareer" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserJobPosition" Type="nvarchar" Mode="In" />
+    <Parameter Name="UserTimeContact" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UserSearch" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+    <Parameter Name="BDFrom" Type="datetime" Mode="In" />
+    <Parameter Name="BDTo" Type="datetime" Mode="In" />
+    <Parameter Name="UserAddCity" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="UserSearchTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="UserAddCity" Type="nvarchar" Mode="In" />
+  </Function>
+</Schema>
