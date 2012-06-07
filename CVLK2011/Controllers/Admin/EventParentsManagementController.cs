@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using CVLK2011.Models;
+using System.IO;
 namespace CVLK2011.Controllers.Admin
 {
     [HandleError]
@@ -11,6 +12,8 @@ namespace CVLK2011.Controllers.Admin
     {
         //
         // GET: /EventParents/
+        private const string virtualPath = "~/Images/Events/";
+        string physicalPath = "../../Images/Events/";
         DBContainer ctx = new DBContainer();
         public int PageSize = 10;
         public ActionResult Index(String currentEvParents, int page = 1)
@@ -77,12 +80,22 @@ namespace CVLK2011.Controllers.Admin
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Create([Bind(Exclude="EventParentID")] EventParent evp, FormCollection collection)
+        public ActionResult Create([Bind(Exclude = "EventParentID")] EventParent evp, FormCollection collection, HttpPostedFileBase uploadFile)
         {
             try
             {
                 if (!IsAuthenticateAdmin())
                     return RedirectToAction("LogOn", "AdminHome");
+                evp.EventParentImage = "";
+                if (uploadFile != null)
+                {
+                    var fileName = Path.GetFileName(uploadFile.FileName);
+                    String sFileName = Utilities.GenerateImageName(Request, virtualPath, fileName, Session["Admin"].ToString());
+                    string filePath = Path.Combine(Request.MapPath(virtualPath), sFileName);
+                    uploadFile.SaveAs(filePath);
+                    evp.EventParentImage = physicalPath + sFileName;
+                }
+                evp.EventParentDesc = collection["FckEditor1"];
                 ctx.AddToEventParents(evp);
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
@@ -100,7 +113,7 @@ namespace CVLK2011.Controllers.Admin
         {
             try
             {
-                EventParent evp = ctx.EventParents.Single(p => p.EventParentID == id);
+               Models.EventParent evp = ctx.EventParents.Where(p => p.EventParentID == id).SingleOrDefault();
                 IEnumerable<ConfigValue> config = ctx.GetConfigValuesByEventParentsGroup();
                 ViewData["Status1"] = new SelectList(config, "ConfigKey", "ConfigText", evp.Status);
                 if(evp!=null)
@@ -118,7 +131,7 @@ namespace CVLK2011.Controllers.Admin
 
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(int id, FormCollection collection, HttpPostedFileBase uploadFile)
         {
             try
             {
@@ -129,6 +142,18 @@ namespace CVLK2011.Controllers.Admin
                 evp.EventParentDesc = collection["FckEditor1"].ToString();
                 evp.EventParentName = collection["EventParentName"].ToString();
                 evp.Status = collection["Status"].ToString();
+                String oldName = String.Empty;
+                //uload image present
+                if (uploadFile != null)
+                {
+                    oldName = evp.EventParentImage;
+                    var fileName = Path.GetFileName(uploadFile.FileName);
+                    String sFileName = Utilities.GenerateImageName(Request, virtualPath, fileName, Session["Admin"].ToString());
+                    string filePath = Path.Combine(Request.MapPath(virtualPath), sFileName);
+                    uploadFile.SaveAs(filePath);
+                    evp.EventParentImage = physicalPath + sFileName;
+
+                }
                 //UpdateModel(evp);
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
@@ -151,6 +176,8 @@ namespace CVLK2011.Controllers.Admin
                 EventParent evp = ctx.EventParents.Single(p => p.EventParentID == id);
                 evp.Status = Models.Utilities.cstDeleteStatus;
                 ctx.SaveChanges();
+                string evfile = evp.EventParentImage;
+                Utilities.DeleteFile(Request, virtualPath, evfile);
                 return RedirectToAction("Index");
             }
             catch

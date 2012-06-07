@@ -58,7 +58,7 @@ namespace CVLK2011.Controllers.Admin
                 String password = collection[1].ToString();
                 if(String.IsNullOrWhiteSpace(userName))
                     return RedirectToAction("LogOn", "AdminHome");
-                Models.Admin adm = ctx.GetAdminByName(userName).SingleOrDefault(p=>p.UserName==userName);
+                Models.Admin adm = ctx.GetAdminByName(userName).SingleOrDefault();//  .SingleOrDefault(p=>p.UserName==userName);
                 if (adm != null)
                 {
                     if (adm.Type == "Admin")
