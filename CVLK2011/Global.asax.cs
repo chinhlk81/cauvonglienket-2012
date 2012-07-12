@@ -106,9 +106,9 @@ namespace CVLK2011
             ModelBinders.Binders[typeof(UploadedFileInfo[])] = new UploadedFileInfoArrayBinder();
             //hieu.nguyen
             Utilities utili = new Utilities();
-            if (!File.Exists(Server.MapPath("VisisCounter.txt")))
-                File.WriteAllText(Server.MapPath("VisisCounter.txt"), "0");
-            Application["Visited"] = int.Parse(File.ReadAllText(Server.MapPath("VisisCounter.txt")));
+            if (!File.Exists(Server.MapPath("VisitCounter.txt")))
+                File.WriteAllText(Server.MapPath("VisitCounter.txt"), "0");
+            Application["Visited"] = int.Parse(File.ReadAllText(Server.MapPath("VisitCounter.txt")));
         }
         protected void Session_End()
         {
@@ -122,7 +122,7 @@ namespace CVLK2011
                 Application["Visiting"] = (int)Application["Visiting"] + 1;
             // Tăng số đã truy cập lên 1 nếu có khách truy cập
             Application["Visited"] = (int)Application["Visited"] + 1;
-            File.WriteAllText(Server.MapPath("VisisCounter.txt"), Application["Visited"].ToString());
+            File.WriteAllText(Server.MapPath("VisitCounter.txt"), Application["Visited"].ToString());
         }
         protected void Application_Error(object sender, EventArgs e)
         {
