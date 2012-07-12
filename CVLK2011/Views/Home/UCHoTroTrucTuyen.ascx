@@ -51,4 +51,13 @@
 </td>
                     </tr>
                  <%}} %>
+                 <tr>
+                 <td colspan="2" style="text-align:right;"><a>Đang online:&nbsp;&nbsp;&nbsp;<%if (Application["Visiting"] != null)
+                                               { %><%=Application["Visiting"].ToString()%><%} %></a></td>
+                                              
+                 <td colspan="2" style="text-align:right"><a>Lượt truy cập:&nbsp;&nbsp;&nbsp;<%if (Application["Visited"] != null)
+                                                 { %><%=Application["Visited"].ToString()%><%} %></a></td>
+                 
+                 </tr>
                 </table>
+ 
