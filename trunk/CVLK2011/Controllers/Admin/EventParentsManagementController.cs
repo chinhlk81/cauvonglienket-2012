@@ -154,7 +154,7 @@ namespace CVLK2011.Controllers.Admin
                     evp.EventParentImage = physicalPath + sFileName;
 
                 }
-                //UpdateModel(evp);
+                UpdateModel(evp);
                 ctx.SaveChanges();
                 return RedirectToAction("Index");
             }
