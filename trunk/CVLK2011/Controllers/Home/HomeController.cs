@@ -1025,5 +1025,9 @@ namespace CVLK2011.Controllers.Home
 
             return View(viewModel);
         }
+        public ActionResult UCStatisticsVisitor()
+        {
+            return View();
+        }
     }
 }
