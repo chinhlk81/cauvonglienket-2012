@@ -23,6 +23,7 @@
           <EntitySet Name="OlineSupport" EntityType="DB.Store.OlineSupport" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Photo" EntityType="DB.Store.Photo" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Province" EntityType="DB.Store.Province" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="TB_ThongKe" EntityType="DB.Store.TB_ThongKe" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="Users" EntityType="DB.Store.Users" store:Type="Tables" Schema="dbo" />
           <EntitySet Name="VIPVideo" EntityType="DB.Store.VIPVideo" store:Type="Tables" Schema="dbo" />
         </EntityContainer>
@@ -256,6 +257,14 @@
           <Property Name="ProvinceID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="ProvinceName" Type="nvarchar" MaxLength="250" />
           <Property Name="ProvinceDesc" Type="nvarchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TB_ThongKe">
+          <Key>
+            <PropertyRef Name="MaTB" />
+          </Key>
+          <Property Name="MaTB" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="ThoiGian" Type="datetime" Nullable="false" />
+          <Property Name="SoTruyCap" Type="bigint" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -686,6 +695,7 @@
           <Parameter Name="UserID" Type="int" Mode="In" />
           <Parameter Name="FriendFullName" Type="nvarchar" Mode="In" />
         </Function>
+        <Function Name="spThongKe_Edit" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="UnApproveComment" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Status" Type="nvarchar" Mode="In" />
           <Parameter Name="commentID" Type="int" Mode="In" />
@@ -1241,6 +1251,8 @@
           <FunctionImport Name="GetAllUsers" ReturnType="Collection(DB.GetAllUsers_Result)" />
           <EntitySet Name="Photos" EntityType="DB.Photo" />
           <EntitySet Name="EventParents" EntityType="DB.EventParent" />
+          <EntitySet Name="TB_ThongKe" EntityType="DB.TB_ThongKe" />
+          <FunctionImport Name="StatisticsVisitor" ReturnType="Collection(DB.StatisticsVisiting_Result)" />
           </EntityContainer>
         <EntityType Name="Admin">
           <Key>
@@ -2158,6 +2170,23 @@
           <Property Type="String" Name="EventParentTitle" Nullable="true" MaxLength="500" />
           <Property Type="String" Name="EventParentImage" Nullable="true" MaxLength="250" />
           <Property Type="String" Name="StatusText" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <EntityType Name="TB_ThongKe">
+          <Key>
+            <PropertyRef Name="MaTB" />
+          </Key>
+          <Property Type="Int32" Name="MaTB" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="DateTime" Name="ThoiGian" Nullable="false" />
+          <Property Type="Int64" Name="SoTruyCap" Nullable="false" />
+        </EntityType>
+        <ComplexType Name="StatisticsVisiting_Result">
+          <Property Type="Int64" Name="HomNay" Nullable="true" />
+          <Property Type="Int64" Name="HomQua" Nullable="true" />
+          <Property Type="Int64" Name="TuanNay" Nullable="true" />
+          <Property Type="Int64" Name="TuanTruoc" Nullable="true" />
+          <Property Type="Int64" Name="ThangNay" Nullable="true" />
+          <Property Type="Int64" Name="ThangTruoc" Nullable="true" />
+          <Property Type="Int64" Name="TatCa" Nullable="true" />
         </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
@@ -3725,6 +3754,28 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="TB_ThongKe">
+            <EntityTypeMapping TypeName="DB.TB_ThongKe">
+              <MappingFragment StoreEntitySet="TB_ThongKe">
+                <ScalarProperty Name="SoTruyCap" ColumnName="SoTruyCap" />
+                <ScalarProperty Name="ThoiGian" ColumnName="ThoiGian" />
+                <ScalarProperty Name="MaTB" ColumnName="MaTB" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="StatisticsVisitor" FunctionName="DB.Store.spThongKe_Edit">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="DB.StatisticsVisiting_Result">
+                <ScalarProperty Name="HomNay" ColumnName="HomNay" />
+                <ScalarProperty Name="HomQua" ColumnName="HomQua" />
+                <ScalarProperty Name="TuanNay" ColumnName="TuanNay" />
+                <ScalarProperty Name="TuanTruoc" ColumnName="TuanTruoc" />
+                <ScalarProperty Name="ThangNay" ColumnName="ThangNay" />
+                <ScalarProperty Name="ThangTruoc" ColumnName="ThangTruoc" />
+                <ScalarProperty Name="TatCa" ColumnName="TatCa" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
@@ -3820,6 +3871,7 @@
         <EntityTypeShape EntityType="DB.Province" Width="1.5" PointX="6.125" PointY="14.25" Height="1.5956835937500031" />
         <EntityTypeShape EntityType="DB.Photo" Width="1.5" PointX="12.375" PointY="0.75" Height="2.5571907552083388" />
         <EntityTypeShape EntityType="DB.EventParent" Width="1.5" PointX="12.375" PointY="4.75" Height="2.1725878906250031" />
+        <EntityTypeShape EntityType="DB.TB_ThongKe" Width="1.5" PointX="10.375" PointY="12.75" Height="1.5956835937500031" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

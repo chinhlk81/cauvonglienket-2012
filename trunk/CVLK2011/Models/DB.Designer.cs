@@ -383,6 +383,22 @@ namespace CVLK2011.Models
             }
         }
         private ObjectSet<EventParent> _EventParents;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<TB_ThongKe> TB_ThongKe
+        {
+            get
+            {
+                if ((_TB_ThongKe == null))
+                {
+                    _TB_ThongKe = base.CreateObjectSet<TB_ThongKe>("TB_ThongKe");
+                }
+                return _TB_ThongKe;
+            }
+        }
+        private ObjectSet<TB_ThongKe> _TB_ThongKe;
 
         #endregion
         #region AddTo Methods
@@ -537,6 +553,14 @@ namespace CVLK2011.Models
         public void AddToEventParents(EventParent eventParent)
         {
             base.AddObject("EventParents", eventParent);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the TB_ThongKe EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddToTB_ThongKe(TB_ThongKe tB_ThongKe)
+        {
+            base.AddObject("TB_ThongKe", tB_ThongKe);
         }
 
         #endregion
@@ -4110,6 +4134,14 @@ namespace CVLK2011.Models
         public ObjectResult<GetAllUsers_Result> GetAllUsers()
         {
             return base.ExecuteFunction<GetAllUsers_Result>("GetAllUsers");
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<StatisticsVisiting_Result> StatisticsVisitor()
+        {
+            return base.ExecuteFunction<StatisticsVisiting_Result>("StatisticsVisitor");
         }
 
         #endregion
@@ -8669,6 +8701,113 @@ namespace CVLK2011.Models
         private global::System.String _ProvinceDesc;
         partial void OnProvinceDescChanging(global::System.String value);
         partial void OnProvinceDescChanged();
+
+        #endregion
+    
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="DB", Name="TB_ThongKe")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class TB_ThongKe : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new TB_ThongKe object.
+        /// </summary>
+        /// <param name="maTB">Initial value of the MaTB property.</param>
+        /// <param name="thoiGian">Initial value of the ThoiGian property.</param>
+        /// <param name="soTruyCap">Initial value of the SoTruyCap property.</param>
+        public static TB_ThongKe CreateTB_ThongKe(global::System.Int32 maTB, global::System.DateTime thoiGian, global::System.Int64 soTruyCap)
+        {
+            TB_ThongKe tB_ThongKe = new TB_ThongKe();
+            tB_ThongKe.MaTB = maTB;
+            tB_ThongKe.ThoiGian = thoiGian;
+            tB_ThongKe.SoTruyCap = soTruyCap;
+            return tB_ThongKe;
+        }
+
+        #endregion
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 MaTB
+        {
+            get
+            {
+                return _MaTB;
+            }
+            set
+            {
+                if (_MaTB != value)
+                {
+                    OnMaTBChanging(value);
+                    ReportPropertyChanging("MaTB");
+                    _MaTB = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("MaTB");
+                    OnMaTBChanged();
+                }
+            }
+        }
+        private global::System.Int32 _MaTB;
+        partial void OnMaTBChanging(global::System.Int32 value);
+        partial void OnMaTBChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.DateTime ThoiGian
+        {
+            get
+            {
+                return _ThoiGian;
+            }
+            set
+            {
+                OnThoiGianChanging(value);
+                ReportPropertyChanging("ThoiGian");
+                _ThoiGian = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ThoiGian");
+                OnThoiGianChanged();
+            }
+        }
+        private global::System.DateTime _ThoiGian;
+        partial void OnThoiGianChanging(global::System.DateTime value);
+        partial void OnThoiGianChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int64 SoTruyCap
+        {
+            get
+            {
+                return _SoTruyCap;
+            }
+            set
+            {
+                OnSoTruyCapChanging(value);
+                ReportPropertyChanging("SoTruyCap");
+                _SoTruyCap = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("SoTruyCap");
+                OnSoTruyCapChanged();
+            }
+        }
+        private global::System.Int64 _SoTruyCap;
+        partial void OnSoTruyCapChanging(global::System.Int64 value);
+        partial void OnSoTruyCapChanged();
 
         #endregion
     
@@ -20461,6 +20600,187 @@ namespace CVLK2011.Models
         private global::System.String _PictureOfFriend;
         partial void OnPictureOfFriendChanging(global::System.String value);
         partial void OnPictureOfFriendChanged();
+
+        #endregion
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmComplexTypeAttribute(NamespaceName="DB", Name="StatisticsVisiting_Result")]
+    [DataContractAttribute(IsReference=true)]
+    [Serializable()]
+    public partial class StatisticsVisiting_Result : ComplexObject
+    {
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> HomNay
+        {
+            get
+            {
+                return _HomNay;
+            }
+            set
+            {
+                OnHomNayChanging(value);
+                ReportPropertyChanging("HomNay");
+                _HomNay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomNay");
+                OnHomNayChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _HomNay;
+        partial void OnHomNayChanging(Nullable<global::System.Int64> value);
+        partial void OnHomNayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> HomQua
+        {
+            get
+            {
+                return _HomQua;
+            }
+            set
+            {
+                OnHomQuaChanging(value);
+                ReportPropertyChanging("HomQua");
+                _HomQua = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("HomQua");
+                OnHomQuaChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _HomQua;
+        partial void OnHomQuaChanging(Nullable<global::System.Int64> value);
+        partial void OnHomQuaChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> TuanNay
+        {
+            get
+            {
+                return _TuanNay;
+            }
+            set
+            {
+                OnTuanNayChanging(value);
+                ReportPropertyChanging("TuanNay");
+                _TuanNay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TuanNay");
+                OnTuanNayChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _TuanNay;
+        partial void OnTuanNayChanging(Nullable<global::System.Int64> value);
+        partial void OnTuanNayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> TuanTruoc
+        {
+            get
+            {
+                return _TuanTruoc;
+            }
+            set
+            {
+                OnTuanTruocChanging(value);
+                ReportPropertyChanging("TuanTruoc");
+                _TuanTruoc = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TuanTruoc");
+                OnTuanTruocChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _TuanTruoc;
+        partial void OnTuanTruocChanging(Nullable<global::System.Int64> value);
+        partial void OnTuanTruocChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> ThangNay
+        {
+            get
+            {
+                return _ThangNay;
+            }
+            set
+            {
+                OnThangNayChanging(value);
+                ReportPropertyChanging("ThangNay");
+                _ThangNay = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ThangNay");
+                OnThangNayChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _ThangNay;
+        partial void OnThangNayChanging(Nullable<global::System.Int64> value);
+        partial void OnThangNayChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> ThangTruoc
+        {
+            get
+            {
+                return _ThangTruoc;
+            }
+            set
+            {
+                OnThangTruocChanging(value);
+                ReportPropertyChanging("ThangTruoc");
+                _ThangTruoc = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("ThangTruoc");
+                OnThangTruocChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _ThangTruoc;
+        partial void OnThangTruocChanging(Nullable<global::System.Int64> value);
+        partial void OnThangTruocChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int64> TatCa
+        {
+            get
+            {
+                return _TatCa;
+            }
+            set
+            {
+                OnTatCaChanging(value);
+                ReportPropertyChanging("TatCa");
+                _TatCa = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("TatCa");
+                OnTatCaChanged();
+            }
+        }
+        private Nullable<global::System.Int64> _TatCa;
+        partial void OnTatCaChanging(Nullable<global::System.Int64> value);
+        partial void OnTatCaChanged();
 
         #endregion
     }
